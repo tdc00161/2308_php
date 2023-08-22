@@ -1,0 +1,25 @@
+* {
+    color: skyblue
+}
+
+/* 타입 선택자 : */
+h1 {
+    color: red
+}
+
+.font-color {
+    color: orange;
+}
+
+/* ID 선택자 */
+#p1 {
+    color: black;
+}
+
+em, strong {
+    color: purple;
+}
+
+h3 {
+    color: black; font-size: 100px;
+}

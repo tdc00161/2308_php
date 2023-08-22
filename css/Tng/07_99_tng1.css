@@ -1,0 +1,14 @@
+ul {
+    list-style-type: none;
+    line-height: 2rem;
+}
+
+.font-color {
+    color: red;
+    font-size: x-large;
+}
+
+div {
+    width: 500px;
+    border: 1px solid #000;
+}
