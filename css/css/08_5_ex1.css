@@ -1,0 +1,47 @@
+main, section, article {
+    padding: 20px;
+}
+
+main {
+    background-color: cadetblue;
+}
+
+section {
+    background-color: antiquewhite;
+}
+
+article {
+    background-color: darkgreen;
+    position: relative;
+    height: 1000px;
+}
+
+.div_static {
+    background-color: blanchedalmond;
+    position: static;
+}
+
+.div_relative {
+    background-color: aqua;
+    position: relative;
+    left:0px;
+    top: 0px;
+}
+
+.div_absolute {
+    background-color: blueviolet;
+    position: absolute;
+}
+
+.div_fixed {
+    background-color: red;
+    position: fixed;
+    right: 50%;
+    top: 50%;
+}
+
+.div_sticky {
+    background-color: yellow;
+    position: sticky;
+    top: 0;
+}
