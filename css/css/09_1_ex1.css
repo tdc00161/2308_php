@@ -1,0 +1,8 @@
+h1 {
+    background-color: aqua;
+    border: 10px dotted #000;
+    background-clip: content-box;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+}

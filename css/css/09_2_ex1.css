@@ -1,0 +1,18 @@
+/* .div-img {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    background-image: url('../img/OIUGC20.jpg')
+                        , url('../img/mini.jpg');
+
+    background-size: 100px;
+
+    background-repeat: no-repeat;
+
+    background-position: top 70% left 30%;
+} */
+
+body {
+    background-image: url('../img/OIUGC20.jpg');
+    background-size: 100%;
+}

@@ -1,0 +1,49 @@
+body {
+    width: 900px;
+    height: 800px;
+}
+
+.div1 {
+    border: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+    padding-left: 10px;
+}
+
+.div2 {
+    border: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+    padding-left: 10px;
+}
+
+.div3 {
+    border: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    clear: both;
+    float: left;
+    margin: 15px;
+    padding-left: 10px;
+}
+
+.div4 {
+    border: 1px solid #000;
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin: 15px;
+    padding-left: 10px;  
+}
+
+footer {
+    clear: both;
+    background-color: #000;
+    color: white;
+    text-align-last: center;
+    padding: 25px;
+}

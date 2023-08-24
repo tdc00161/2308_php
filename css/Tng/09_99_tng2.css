@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    }
+
+main {
+    background-color: white;
+    background-clip: border-box;
+    width: 800px;
+    height: 900px;
+    margin: 0 auto;
+    padding: 30px;
+
+    background-image: url(../img/OIUGC20.jpg);
+    background-size: 200px 200px;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+}
+
+h1 {
+    background-color: rgb(9, 119, 82);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+.h2 {
+    font-style: italic;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px;
+}
+
+ul {
+    list-style: none;
+    line-height: 25px;
+}
+
+p {
+    color: red;
+    font-size: large;
+    font-weight: bold;
+}
