@@ -1,0 +1,16 @@
+header div span {
+    color: aqua;
+}
+
+header>span {
+    color: red;
+}
+/* > : 직속 자식 태그에만 설정 */
+
+span+p {
+    color: blue;
+}
+
+span~p {
+    color: blueviolet;
+}

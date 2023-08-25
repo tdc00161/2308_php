@@ -1,0 +1,30 @@
+[target] {
+    color: green;
+}
+
+[target=daum] {
+    color: blue;
+}
+
+[class~=att_class] {
+    color: chocolate;
+}
+
+/* [class*=att_class] {
+    color: brown;
+} */
+
+[class|=att] {
+    color: yellowgreen;
+}
+/* class 의 속성값인 att 와 일치하거나, att-@ 등 일 때 적용 */
+
+[class^=co] {
+    color: deeppink;
+}
+/* ^= 속성값 : 앞에 해당 속성값 들어가있는 클래스에는 적용 */
+
+[class$=k1] {
+    color: greenyellow;
+}
+/* $= 속상값 : 뒤에 해당 속성값 들어가있는 클래스에 적용 */
