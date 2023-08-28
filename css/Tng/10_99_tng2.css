@@ -1,0 +1,56 @@
+fieldset {
+    width: 500px;
+    height: 400px;
+    line-height: 40px;
+    background-image: url(../img/mini.jpg);
+    background-size: 450px 350px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    font-weight: bold;
+}
+
+legend {
+    color: hotpink;
+    font-size: x-large;
+}
+
+span {
+    color: red;
+}
+
+textarea, input {
+    background-color: transparent;
+}
+ 
+#name:focus, #age:focus, #plz:focus {
+    border-color: red;
+    outline: none;
+}
+
+#man:checked+label, #women:checked+label {
+    color: red;
+}
+
+#plz {
+    vertical-align: top;
+}
+
+#spend {
+    position: relative;
+}
+
+#spend:hover::after {
+    content: '내용을 다시 확인해주세요.';
+    background-color: black;
+    width: 180px;
+    height: 20px;
+    color: white;
+    position: absolute;
+    text-align: left;
+    left: 60px;
+}
+
+/*  칸을 투명하게0
+초첨맞출때 빨간색0
+요청사항 글자 상단에
+성별 클릭시 선택된 글자 빨간색 */

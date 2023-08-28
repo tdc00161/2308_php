@@ -1,0 +1,10 @@
+html {
+    font-size: 30px;
+}
+
+p {
+    background-color: black;
+    color: white;
+}
+
+/* 매체별로 글자길이 조절하고 싶을때 */
