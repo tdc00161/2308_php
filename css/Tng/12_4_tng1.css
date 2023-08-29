@@ -1,0 +1,20 @@
+.container {
+    width: 100vw;
+    height: 700px;
+    background-color: gray;
+    border: 1px solid #000;
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    background-color: yellow;
+    float: left;
+    box-sizing: border-box;
+}
+
+.item1 {
+    border: 1px hidden;
+    background-color: transparent;
+}
