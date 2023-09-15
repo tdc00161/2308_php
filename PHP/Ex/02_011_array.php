@@ -2,6 +2,12 @@
 // $arr = array(0, "a", 2);
 // $arr2 = [0,"a", 2];
 
+$arr = array(0, "a", 2, 6, 10);
+$arr2 = [0, 1, 2];
+$arr3 = ["배열", $arr[1], $arr2[1]];
+
+var_dump($arr3);
+
 // var_dump($arr[1]);
 // echo $arr[2];
 
@@ -42,17 +48,28 @@
 
 
 // array_diff() : A배열과 B배열을 비교해서 중복되지 않는 A배열의 원소를 반환
-$arr_diff1 = [1, 2, 3];
-$arr_diff2 = [ 1, 4, 5];
-$arr_diff = array_diff($arr_diff1, $arr_diff2);
-print_r($arr_diff);
+// $arr_diff1 = [1, 2, 3];
+// $arr_diff2 = [ 1, 4, 5];
+// $arr_diff = array_diff($arr_diff1, $arr_diff2);
+// print_r($arr_diff);
 
-// array_push() : 기존 배열에 값을 추가 하는 함수
-$arr_push = [1, 2, 3];
-array_push ( $arr_push, 4,5);
-print_r($arr_push);
+// // array_push() : 기존 배열에 값을 추가 하는 함수
+// $arr_push = [1, 2, 3];
+// array_push ( $arr_push, 4,5);
+// print_r($arr_push);
 
 
-$arr_push[] = 4;
-$arr_push[] = 5;
+// $arr_push[] = 4;
+// $arr_push[] = 5;
+
+
+
+
+
+
+
 ?>
+
+
+
+
