@@ -51,10 +51,11 @@ function db_destroy_conn(&$conn) {
 //함수명          : db_select_boards_paging
 // 기능           : boards paging 조회
 // 파라미터       : PDO   &$conn
+//				   Array  &$arr_param 쿼리 작성용 배열
 // 리턴           : Array / false
 //----------------------------------------
 
-function db_select_boards_paging(&$conn) {
+function db_select_boards_paging(&$conn, &$arr_param) {
 	try {
 		$sql = 
 		" SELECT "
@@ -65,9 +66,13 @@ function db_select_boards_paging(&$conn) {
 		." 		boards "
 		." ORDER BY "
 		." 		id DESC "
+		." LIMIT :list_cnt OFFSET :offset "
 		;
 
-		$arr_ps = [];
+		$arr_ps = [
+			":list_cnt" => $arr_param["list_cnt"]
+			,":offset" => $arr_param["offset"]
+		];
 
 		$stmt = $conn->prepare($sql);
 		$stmt->execute($arr_ps);
@@ -78,6 +83,79 @@ function db_select_boards_paging(&$conn) {
 		return false; // 예외발생 : flase 리턴
 	}
 }
+
+// $conn = null;
+
+//----------------------------------------
+//함수명          : db_select_boards_cnt
+// 기능           : boards paging 전체 갯수
+// 파라미터       : PDO   &$conn
+//				   Array  &$arr_param 쿼리 작성용 배열
+// 리턴           : Array / false
+//----------------------------------------
+
+function db_select_boards_cnt(&$conn) {
+	$sql = 
+		" SELECT "
+		." 		count(id) as cnt "
+		." FROM "
+		." 		boards "
+		;
+	
+		try {
+			$stmt = $conn->query($sql);
+			$result = $stmt->fetchAll();
+			return (int)$result[0]["cnt"]; // 정상 : 쿼리 결과 리턴
+		} catch(Exception $e) {
+			return false; // 예외발생 : flase 리턴
+		}
+}
+
+//----------------------------------------
+//함수명          : db_insert_boards
+// 기능           : boards 레코드 작성
+// 파라미터       : PDO   &$conn
+//				   Array  &$arr_param 쿼리 작성용 배열
+// 리턴           : Boolean
+//----------------------------------------
+
+function db_insert_boards(&$conn, &$arr_param) {
+	$sql = 
+		" INSERT INTO boards ( "
+		."		title "
+		."		,content "
+		." ) "
+		." VALUES ( "
+		." 		:title "
+		."		,:content "
+		." ) "
+		;
+
+	$arr_ps = [
+		":title" => $arr_param["title"]
+		,":content" => $arr_param["content"]
+	];
+
+	try {
+		$stmt = $conn->prepare($sql);
+		$result = $stmt->execute($arr_ps);
+		return $result; // 정상 : 쿼리 결과 리턴
+	} catch(Exception $e) {
+		return false; // 예외발생 : flase 리턴
+	}
+}
+
+
+
+// 나중에 없애기
+// $conn=null;
+// $arr_param=[
+// 	"title"=>"asdf"
+// 	,"content"=>"aafassdfasdf"
+// ];
+// my_db_conn($conn);
+// $result=db_insert_boards($conn, $arr_param);
+// var_dump($result);
 
 
 ?>
