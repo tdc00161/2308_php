@@ -5,7 +5,7 @@
 
 	$id = ""; // 게시글 id
 	$conn = null; // DB Connect
-
+ 
 	try {
 
 		if(!my_db_conn($conn)) {
