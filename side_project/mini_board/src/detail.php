@@ -73,8 +73,8 @@
 			<td><?php echo $item["create_at"]; ?></td>
 		</tr>
 	</table>
-	<a href="#">수정</a>
-	<a href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
-	<a href="#">삭제</a>
+	<a class="but" href="#">수정</a>
+	<a class="but" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
+	<a class="but" href="#">삭제</a>
 </body>
 </html>

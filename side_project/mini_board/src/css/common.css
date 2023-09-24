@@ -60,3 +60,21 @@ a {
 	background-color: #000;
 	color: #fff;
 }
+
+.page-btn:hover {
+	opacity: 0;
+}
+
+form {
+	background-color: yellow;
+	font-style: italic;
+}
+
+.but {
+	background-color: beige;
+	font-weight: bold;
+}
+
+.but:hover {
+	opacity: 10;
+}
