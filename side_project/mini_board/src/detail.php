@@ -55,25 +55,25 @@
 	<?php	
 		require_once(FILE_HEADER);
 	?>
-	<table>
+	<table class="det">
 		<tr>
-			<th>글 번호</th>
+			<th class="cla">글 번호</th>
 			<td><?php echo $item["id"]; ?></td>
 		</tr>
 		<tr>
-			<th>제목</th>
+			<th class="cla">제목</th>
 			<td><?php echo $item["title"]; ?></td>
 		</tr>
 		<tr>
-			<th>내용</th>
+			<th class="cla">내용</th>
 			<td><?php echo $item["content"]; ?></td>
 		</tr>
 		<tr>
-			<th>작성일자</th>
+			<th class="cla">작성일자</th>
 			<td><?php echo $item["create_at"]; ?></td>
 		</tr>
 	</table>
-	<a class="but" href="#">수정</a>
+	<a class="but" href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정페이지로</a>
 	<a class="but" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
 	<a class="but" href="#">삭제</a>
 </body>

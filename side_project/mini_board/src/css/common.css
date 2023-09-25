@@ -5,23 +5,26 @@
 body {
 	margin : 0;
 	padding: 0;
-	background-image: url(/mini_board/src/img/pacon.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 0 148px;
 }
 
 
 header {
+	margin: 20px 0px;
 	width: 100%;
-	background-color: #000;
+	background-image: url(../img/pacon.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 	padding: 2rem;
 } 
+
 header > h1 {
-	margin: 0;
-	color: #fff;
+	margin: 0px;
 	text-align: center;
 	font-size: 4rem;
+}
+
+header > a {
+	color:white;
 }
 
 table {
@@ -30,17 +33,21 @@ table {
 	height: 500px;
 	margin: 50px auto;
 	font-size: 1.5rem;
+	border-top: 1px solid darkgray;
+	border-bottom: 1px solid darkgray;
 }
 
-th, td {
-	border-bottom: 1px solid #000;
+td {
+	border-bottom: 1px solid darkgray;
 	text-align: center;
+	font-size: medium;
 }
 
 .table-title {
 	border: none;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(254, 195, 140, 0.5);
 	color: #fff;
+	font-size: large;
 }
 
 section {
@@ -50,6 +57,7 @@ section {
 a {
 	text-decoration: none;
 	display: inline-block;
+	color: #000;
 }
 
 .page-btn {
@@ -57,24 +65,19 @@ a {
 	height: 50px;
 	text-align: center;
 	line-height: 50px;
-	background-color: #000;
-	color: #fff;
+	background-color: beige;
+	color: black;
 }
 
 .page-btn:hover {
-	opacity: 0;
-}
-
-form {
-	background-color: yellow;
-	font-style: italic;
-}
-
-.but {
-	background-color: beige;
-	font-weight: bold;
+	opacity: 80px;
 }
 
 .but:hover {
-	opacity: 10;
+	opacity: 50px;
+}
+
+.hed {
+	color: #000;
+	font-weight: bold;
 }

@@ -15,7 +15,7 @@ try {
 		//DB Instance 에러
 		throw new Exception("DB Error : PDO Instance"); // 강제 예외발생 : DB Instance
 	}
-
+	
 	//-------------
 	// 페이징 처리
 	//-------------
@@ -76,7 +76,7 @@ try {
 	<title>리스트 페이지</title>
 </head>
 <body>
-	<?php	
+	<?php
 	require_once(FILE_HEADER);
 	?>
 	<main>
@@ -98,12 +98,12 @@ try {
 				foreach($result as $item) {
 			?>
 					<tr>
-						<td><?php echo $item["id"] ?></td>
-						<td><a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
+						<td class="hed"><?php echo $item["id"] ?></td>
+						<td class="hed"><a href="/mini_board/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 								<?php echo $item["title"]; ?>
 							</a>
 						</td>
-						<td><?php echo $item["create_at"]; ?></td>
+						<td class="hed"><?php echo $item["create_at"]; ?></td>
 					</tr>
 			<?php   } ?>
 		</table>
