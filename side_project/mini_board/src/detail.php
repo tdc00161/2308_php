@@ -75,6 +75,6 @@
 	</table>
 	<a class="but" href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정페이지로</a>
 	<a class="but" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
-	<a class="but" href="#">삭제</a>
+	<a class="but" href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">삭제</a>
 </body>
 </html>
