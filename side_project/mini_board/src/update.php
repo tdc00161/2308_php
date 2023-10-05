@@ -1,13 +1,13 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/"); // 웹서버
 	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
+	define("ERROR_MSG_PARAM", "%s는 필수 입력 사항입니다."); // 파라미터 에러 메세지
 	require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 	$conn = null; // DB 연결용 변수
-	$id = isset($_GET["id"]) ? $_GET["id"] : $_POST["id"]; // id 셋팅
-	$page_num = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"]; // 페이지 번호 초기화
 	$http_method = $_SERVER["REQUEST_METHOD"]; // Method 확인
-	
+	$arr_err_msg=[];
+
 	try {
 		// DB 연결
 		if(!my_db_conn($conn)) {
@@ -18,6 +18,20 @@
 		// GET Method의 경우
 		if($http_method === "GET"){
 			// GET Method의 경우
+
+			// 파라미터 획득
+			$id = isset($_GET["id"]) ? $_GET["id"] : ""; // id 셋팅
+			$page = isset($_GET["page"]) ? $_GET["page"] : ""; // page 셋팅
+
+			if($id === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+			}
+			if($page === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+			}
+			if(count($arr_err_msg) >= 1) {
+				throw new Exception(implode("<br>", $arr_err_msg));
+			}
 
 			$result = db_select_boards_id($conn, $id);
 			// 게시글 조회 예외처리
@@ -31,29 +45,56 @@
 
 		} else {
 			// POST Method의 경우
-			// 게시글 수정을 위해 파라미터 셋팅
-			$arr_param = [
-				"id" => $id
-				,"title" => $_POST["title"]
-				,"content" => $_POST["content"]
-			];
+			
+			// 파라미터 획득
+			$id = isset($_POST["id"]) ? $_POST["id"] : ""; // id 셋팅
+			$page = isset($_POST["page"]) ? $_POST["page"] : ""; // page 셋팅
+			$title = isset($_POST["title"]) ? $_POST["title"] : ""; // title 셋팅
+			$content = isset($_POST["content"]) ? $_POST["content"] : ""; // content 셋팅
 
-			// 게시글 수정 처리
-			$conn->beginTransaction(); // 트랜잭션 시작
-
-			if(!db_update_boards_id($conn, $arr_param)) {
-				throw new Exception("DB Error : Update_Boards_id");
+			if($id === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
 			}
-			$conn->commit(); // commit
+			if($page === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+			}
+			if(count($arr_err_msg) >= 1) {
+				throw new Exception(implode("<br>", $arr_err_msg));
+			}
+			if($title === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "title");
+			}
+			if($content === "") {
+				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "content");
+			}
 
-			header("Location: detail.php/?id={$id}&page={$page_num}"); // 디테일 페이지로 이동
+			if(count($arr_err_msg) === 0) {
+
+				// 게시글 수정을 위해 파라미터 셋팅
+				$arr_param = [
+					"id" => $id
+					,"title" => $_POST["title"]
+					,"content" => $_POST["content"]
+				];
+
+				// 게시글 수정 처리
+				$conn->beginTransaction(); // 트랜잭션 시작
+
+				if(!db_update_boards_id($conn, $arr_param)) {
+					throw new Exception("DB Error : Update_Boards_id");
+				}
+				$conn->commit(); // commit
+
+				header("Location: detail.php/?id={$id}&page={$page}"); // 디테일 페이지로 이동
+			}
 		}
 
 	} catch(Exception $e) {
 		if($http_method === "POST") {
 			$conn->rollBack(); // 예외 메세지 출력
 		}
-		echo $e->getMessage(); // Exception 메세지 출력
+		// echo $e->getMessage(); // Exception 메세지 출력
+		header("Location: /mini_board/src/error.php/?err_msg={$e->getMessage()}");
 		exit; // 처리종료
 	} finally {
 		db_destroy_conn($conn); // DB 파기
@@ -76,7 +117,7 @@
 	<form action="/mini_board/src/update.php" method="post">
 		<table class="det">
 			<input type="hidden" name="id" value="<?php echo $id ?>">
-			<input type="hidden" name="page" value="<?php echo $page_num ?>">
+			<input type="hidden" name="page" value="<?php echo $page ?>">
 			<tr>
 				<th class="cla">글 번호</th>
 				<td><?php echo $item["id"]; ?></td>
@@ -89,13 +130,11 @@
 			</tr>
 			<tr>
 				<th class="cla">내용</th>
-				<td>
-					<textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"] ?></textarea>
-				</td>
+				<td><textarea name="content" id="content" cols="30" rows="10"><?php echo $item["content"]; ?></textarea></td>
 			</tr>
 		</table>
 		<button type="submit">수정확인</button>
-		<a class="but" href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정취소</a>
+		<a class="but" href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>
 	</form>
 	
 </body>

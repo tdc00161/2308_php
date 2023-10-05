@@ -34,7 +34,8 @@
 
 		$item = $result[0];
 	} catch(Exception $e) {
-		echo $e->getMessage(); // 예외 메세지 출력 
+		// echo $e->getMessage(); // 예외 메세지 출력
+		header("Location: error.php/?err_msg={$e->getMessage()}"); 
 		exit; // 처리 종료
 	} finally {
 		db_destroy_conn($conn); // DB 파기
@@ -55,26 +56,28 @@
 	<?php	
 		require_once(FILE_HEADER);
 	?>
-	<table class="det">
-		<tr>
-			<th class="cla">글 번호</th>
-			<td><?php echo $item["id"]; ?></td>
-		</tr>
-		<tr>
-			<th class="cla">제목</th>
-			<td><?php echo $item["title"]; ?></td>
-		</tr>
-		<tr>
-			<th class="cla">내용</th>
-			<td><?php echo $item["content"]; ?></td>
-		</tr>
-		<tr>
-			<th class="cla">작성일자</th>
-			<td><?php echo $item["create_at"]; ?></td>
-		</tr>
-	</table>
-	<a class="but" href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정페이지로</a>
-	<a class="but" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
-	<a class="but" href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">삭제</a>
+	<main class="detail_m">
+		<table class="detail_t">
+			<tr class="detail_tr">
+				<th>글 번호</th>
+				<td><?php echo $item["id"]; ?></td>
+			</tr>
+			<tr class="detail_tr">
+				<th>제목</th>
+				<td><?php echo $item["title"]; ?></td>
+			</tr>
+			<tr class="detail_tr">
+				<th>내용</th>
+				<td><?php echo $item["content"]; ?></td>
+			</tr>
+			<tr class="detail_tr">
+				<th>작성일자</th>
+				<td><?php echo $item["create_at"]; ?></td>
+			</tr>
+		</table>
+	</main>
+	<a class="detail_a" href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">수정페이지로</a>
+	<a class="detail_a" href="/mini_board/src/list.php/?page=<?php echo $page_num; ?>">취소</a>
+	<a class="detail_a" href="/mini_board/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page_num; ?>">삭제</a>
 </body>
 </html>

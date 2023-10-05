@@ -14,7 +14,10 @@ while ($i < 6) {
 		echo "*";
 		$a++;
 	}
-	echo "\n";	
+	echo "\n"; 
+	
+	
+	 
 	$i++;
 }
 
