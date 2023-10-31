@@ -22,9 +22,30 @@ DIV1.addEventListener('mouseenter', () => {
 
 const DIVCL = document.querySelector('#div1')
 DIVCL.addEventListener('click', () => {
-	alert('들켰다!')
-	DIVCL.style.backgroundColor = 'beige'
+	while(조건문){
+		if($i === 0) {
+			if(true){
+			alert('들켰다!');
+			DIVCL.style.backgroundColor = 'beige';
+			} else {
+				DIVCL.style.backgroundColor = 'beige';
+			}
+		} else if ($i !== 0) {
+			alert('다시 숨는다');
+			DIVCL.style.backgroundColor = 'white';
+		}
+	}
 });
+// 위 조건문을 적용할 해당 클래스를 지정해주어야 함.
+// 클릭해서 들켰을 때 문구 출력하고 한 번 더 클릭하면 다시 숨는다 출력
+// 들켰을 때는 추가적으로 문구 출력 안 함 
+
+// 1. 홀 수 클릭했을 때와 짝 수 클릭했을 때로 구분해서 출력
+// 2. 
+
+
+
+
 // DIVCL.removeEventListener('click', () => {
 // 	alert('다시 숨는다')
 // 	DIVCL.style.backgroundColor = 'white'
@@ -36,8 +57,8 @@ DIVCL.addEventListener('click', () => {
 
 	// const DIVCL1 = document.querySelector('#div1')
 	// DIVCL.addEventListener('click', () => {
-	// 	alert('다시 숨는다')
-	// 	DIVCL.style.backgroundColor = 'white'
+	// 	alert('다시 숨는다');
+	// 	DIVCL.style.backgroundColor = 'white';
 	// });
 
 //  1 >> 2-1 >> 3 >> 2-2 >> 4

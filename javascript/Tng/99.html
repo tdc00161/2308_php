@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		h1 {
+			width: 100vw;
+			height: 200px;
+			background-color: black;
+			color: white;
+			font-size: 100px;
+			text-align: center;
+			line-height: 200px;
+		}
+
+		main {
+			margin: 0 auto;
+		}
+
+		input {
+			/* margin-top: 50px; */
+			width: 500px;
+		}
+
+		div {
+			display: inline-block;
+			background-color: lightgray;
+		}
+
+		.griduse {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+		}
+
+		.grid { 
+			grid-column: 0/1;
+		}
+
+		.grid1 { 
+			grid-column: 1/2;
+		}
+
+		p {
+			text-align: center;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<h1>API 실습</h1>
+	<main>
+		<input type="text" id="text">
+		<br>
+		<button id="btn-open">API 호출</button>
+		<button>지우기</button>
+		<div id="main">
+			<div id = "div" class="griduse">
+				<div id = "p" class="grid">
+					<!-- for(i=0; i<img.length; i++){
+						return i;
+					}; -->
+				</div>
+				<img id = "img" src="#" alt="" class="grid1">
+			</div>
+		</div>
+	</main>
+	<script src="./99.js"></script>
+</body>
+</html>
