@@ -1,10 +1,49 @@
 <?php
 define("ROOT",$_SERVER["DOCUMENT_ROOT"]."/project/src");
 define("FILE_HEADER", ROOT."/header.php");
-// difine("");
-// require_once(ROOT."lib.php");
+require_once(ROOT."/lib.php");
 
+$id = "";
+$conn = null;
 
+$arr_err_msg = [];
+
+try {
+	if(!my_db_conn($conn)) {
+		throw new Exception("DB Error : PDO Instance");
+	}
+
+	$id = isset($_GET["id"]) ? $_GET["id"] : "";
+	$page = isset($_GET["page"]) ? $_GET["page"] : "";
+
+	if($id === "") {
+		$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
+	}
+	if($page === "") {
+		$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "page");
+	}
+	if(count($arr_err_msg) >= 1) {
+		throw new Exception(implode("<br>", $arr_err_msg));
+	}
+
+	$arr_param = [
+		"id" => $id
+	];
+	$result = db_select_boards_id($conn, $arr_param);
+
+	if($result === false) {
+		var_dump($result);
+		throw new Exception("DB Error : PDO Select_id");
+	} else if(!(count($result) === 1)) {
+		throw new Exception("DB Error : PDO Select_id count");
+	}
+	$item = $result[0];
+} catch(Exception $e) {
+	echo $e->getMessage();
+	exit;
+} finally {
+	db_destroy_conn($conn);
+}
 
 
 ?>
@@ -21,31 +60,35 @@ define("FILE_HEADER", ROOT."/header.php");
 	<?php
 	require_once(FILE_HEADER);
 	?>
-	<div>
-		<label for="">제목</label>
-		<input type="text">
-	</div>
-	<div>
-		<label for="">가수</label>
-		<input type="text">
-	</div>
-	<div>
-		<label for="music">장르</label>
-		<input type="text">
-	</div>
-	<div>
-		<label for="memo">메모</label>
-		<textarea name="memo" id="memo" cols="25" rows="5"></textarea>
-	</div>
-	<div>
-		<label for="music">수정일시</label>
-		<input type="text">
-	</div>
+	<main>
+		<table>
+			<tr>
+				<th>제목</th>
+				<td><?php echo $item["title"]; ?></td>
+			</tr>
+			<tr>
+				<th>가수</th>
+				<td><?php echo $item["name"]; ?></td>
+			</tr>
+			<tr>
+				<th>분야</th>
+				<td><?php echo $item["type"]; ?></td>
+			</tr>
+			<tr>
+				<th>메모</th>
+				<td><?php echo $item["memo"]; ?></td>
+			</tr>
+			<tr>
+				<th>수정일시</th>
+				<td><?php echo $item["update_at"]; ?></td>
+			</tr>
+		</table>
+	</main>
 
 	<section>
-		<button type="submit">수정</button>
-		<a href="#">삭제</a>
-		<a href="#">취소</a>
+		<a href="/project/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정</a>
+		<a href="/project/src/delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">삭제</a>
+		<a href="/project/src/list.php/?page=<?php echo $page; ?>">취소</a>
 	</section>
 </body>
 </html>

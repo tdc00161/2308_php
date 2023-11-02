@@ -1,0 +1,62 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: ;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+main {
+	width: 800px;
+}
+
+h1 {
+	margin-top: 50px;
+	font-size: 3rem;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.list_div {
+	text-align: center;
+}
+
+.list_a {
+	position: static;
+	margin-left: 90%;
+	background-color: lightgray;
+	/* padding: 5px; */
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+.list_input {
+	width: 300px;
+}
+
+.list_table {
+	text-align: center;
+	border-collapse: collapse;
+	line-height: 35px;
+}
+
+.list_thead {
+	background-color: black;
+	color: white;
+	font-weight: 100;
+}
+
+.list_tr {
+	border-bottom: 1px solid black;
+}
+
+.list_section {
+	text-align: center;
+}
