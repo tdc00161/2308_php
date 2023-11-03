@@ -113,6 +113,7 @@ try {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>수정 페이지</title>
 	<link rel="stylesheet" href="./common.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 	<?php
@@ -127,18 +128,18 @@ try {
 			}
 		?>
 		<form action="/project/src/update.php" method="post">
-			<table>
+			<table class="table">
 				<input type="hidden" name="id" value="<?php echo $id; ?>">
 				<input type="hidden" name="page" value="<?php echo $page; ?>">
-				<tr>
+				<tr class="input-group mb-3">
 					<th>제목</th>
 					<td><input type="text" name="title" value="<?php echo $item["title"]; ?>"></td>
 				</tr>
-				<tr>
+				<tr class="input-group mb-3">
 					<th>가수</th>
 					<td><input type="text" name="name" value="<?php echo $item["name"]; ?>"></td>
 				</tr>
-				<tr>
+				<tr class="input-group mb-3">
 					<th>장르</th>
 					<td>
 						<select name="type" id="music" value="<?php echo $item["type"]; ?>">
@@ -149,7 +150,7 @@ try {
 						</select>	
 					</td>
 				</tr>
-				<tr>
+				<tr class="input-group mb-3">
 					<th>메모</th>
 					<td><textarea name="memo" id="memo" cols="25" rows="5"><?php echo $item["memo"]; ?></textarea></td>
 				</tr>
@@ -157,10 +158,10 @@ try {
 			
 			<section>
 				<button type="submit">완료</button>
-				<a href="/project/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
+				<a class="common_a" href="/project/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>
 			</section>
 		</form>
 	</main>
-	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

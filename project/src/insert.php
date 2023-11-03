@@ -25,9 +25,6 @@ if($http_method === "POST") {
 		if($name === "") {
 			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "가수명");
 		}
-		if($type === "") {
-			$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "분야");
-		}
 		
 		if(count($arr_err_msg) === 0) {
 			if(!my_db_conn($conn)) {
@@ -69,6 +66,7 @@ if($http_method === "POST") {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>작성 페이지</title>
 	<link rel="stylesheet" href="./common.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 	<?php
@@ -83,32 +81,33 @@ if($http_method === "POST") {
 				}
 		?>
 		<form action="/project/src/insert.php" method="post">
-			<div>
-				<label for="">제목</label>
-				<input type="text" name="title" value="<?php echo $title ?>">
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="">제목</label>
+				<input  type="text" name="title" value="<?php echo $title ?>" required>
 			</div>
-			<div>
-				<label for="">가수</label>
-				<input type="text" name="name" value="<?php echo $name ?>">
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="">가수</label>
+				<input type="text" name="name" value="<?php echo $name ?>" required>
 			</div>
-			<div>
-				<label for="music">장르</label>
-				<select name="type" id="music" value="<?php echo $type ?>">
-					<option value="0">선택해주세요</option>
-					<option value="1">발라드</option>
-					<option value="2">댄스</option>
-					<option value="3">힙합</option>
+			<div class="input-group mb-3">
+				<label class="input-group-text" for="music">장르</label>
+				<select name="type" id="music" value="<?php echo $type ?>" required>
+					<option type="hidden" value="선택해주세요" ></option>
+					<option value="발라드">발라드</option>
+					<option value="댄스">댄스</option>
+					<option value="힙합">힙합</option>
 				</select>	
 			</div>
-			<div>
+			<div class="input-group mb-3">
 				<label for="memo">메모</label>
-				<textarea name="memo" id="memo" cols="25" rows="5" value="<?php echo $memo ?>"></textarea>
+				<textarea class="form-control" name="memo" id="memo" cols="25" rows="5" value="<?php echo $memo ?>" required></textarea>
 			</div>
+			<section>
+				<button type="submit">작성</button>
+				<a class="common_a" href="/project/src/list.php">취소</a>
+			</section>
 		</form>	
 	</main>
-	<section>
-		<button type="submit">작성</button>
-		<a href="/project/src/list.php">취소</a>
-	</section>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

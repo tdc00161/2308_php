@@ -8,55 +8,35 @@ body {
 	width: ;
 }
 
-a {
+.header_h {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.header_h > a{
+	text-decoration: none;
+	font-weight: 900;
+	color: black;
+}
+
+.common_a {
 	text-decoration: none;
 	color: black;
 }
 
-main {
-	width: 800px;
+.list_wirte {
+	text-align: right;
 }
 
-h1 {
+main {
+	width: 800px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.commontitle {
 	margin-top: 50px;
 	font-size: 3rem;
 	font-weight: bolder;
-	text-align: center;
-}
-
-.list_div {
-	text-align: center;
-}
-
-.list_a {
-	position: static;
-	margin-left: 90%;
-	background-color: lightgray;
-	/* padding: 5px; */
-	border-radius: 5px;
-	font-size: 1rem;
-}
-
-.list_input {
-	width: 300px;
-}
-
-.list_table {
-	text-align: center;
-	border-collapse: collapse;
-	line-height: 35px;
-}
-
-.list_thead {
-	background-color: black;
-	color: white;
-	font-weight: 100;
-}
-
-.list_tr {
-	border-bottom: 1px solid black;
-}
-
-.list_section {
 	text-align: center;
 }

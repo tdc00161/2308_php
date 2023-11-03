@@ -69,6 +69,7 @@ try {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>리스트 페이지</title>
 	<link rel="stylesheet" href="./common.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 	<?php
@@ -76,28 +77,21 @@ try {
 	?>
 	<br>
 	<main>
-		<div class="list_div">
+		<div>
 			<input type="text" class="list_input">
 			<button type="submit">검색</button>
 		</div>
 		<br>
-		<a class="list_a" href="/project/src/insert.php">작성</a>
+		<a class="common_a" class="list_wirte" href="/project/src/insert.php">작성</a>
 		<br><br>
-		<table class="list_table">
-			<colgroup>
-				<col width="5%">
-				<col width="35%">
-				<col width="25%">
-				<col width="10%">
-				<col width="20%">
-			</colgroup>
-			<thead class="list_thead">
-				<tr>
-				<th>순번</th>
-				<th>제목</th>
-				<th>가수명</th>
-				<th>장르</th>
-				<th>작성일시</th>
+		<table class="table text-center">
+			<thead>
+				<tr class="table-dark">
+					<th scope="col">순번</th>
+					<th scope="col">제목</th>
+					<th scope="col">가수명</th>
+					<th scope="col">장르</th>
+					<th scope="col">작성일시</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -105,10 +99,10 @@ try {
 						// 리스트를 생성
 						foreach($result as $item) {
 					?>
-						<tr class="list_tr">
-							<td scope="row"><?php echo $item["id"]; ?></td>
+						<tr>
+							<td><?php echo $item["id"]; ?></td>
 							<td>
-								<a href="/project/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
+								<a class="common_a" href="/project/src/detail.php/?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 									<?php echo $item["title"]; ?>
 								</a>
 							</td>
@@ -123,19 +117,18 @@ try {
 		</table>
 	</main>
 	<br>
-	<section class="list_section">				
-		<a href="/project/src/list.php/?page=<?php echo $prev_page_num ?>"><<</a>
+	<section class="text-center">				
+		<a class="common_a" href="/project/src/list.php/?page=<?php echo $prev_page_num ?>"><<</a>
 		<?php 
 				for($i = 1; $i <= $max_page_num; $i++) {
-					// 삼항연산자 : 조건 ? 참일때처리 : 거짓일때처리
 					$str = (int)$page_num === $i ? "bk-a" : "";
 			?>
-					<a class="button_a" <?php echo $str ?>" href="/project/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+					<a class="common_a" class="button_a" <?php echo $str ?>" href="/project/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 		<?php
 			}
 		?>
-		<a href="/project/src/list.php/?page=<?php echo $next_page_num ?>">>></a>
+		<a class="common_a" href="/project/src/list.php/?page=<?php echo $next_page_num ?>">>></a>
 	</section>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
