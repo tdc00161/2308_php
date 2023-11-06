@@ -28,10 +28,10 @@ class UserController extends ParentsController {
 		}
 
 		// 세션에 u_id 저장
-		$_SESSION["u_id"] = $resultUserInfo[0]["u_id"];
+		$_SESSION["u_pk"] = $resultUserInfo[0]["id"];
 
 		// return "view/list.php"; 이렇게 할 경우 호스트명에 제대로 안보여짐
-		return "Location: /board/list";
+		return "Location: /board/list?b_type=0";
 	}
 
 	// 로그아웃 처리

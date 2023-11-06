@@ -4,7 +4,7 @@
 // html 작성시에는 php 닫는 태그 사용
 
 require_once("config.php"); // 설정 파일 불러오기
-require_once("autoload.php"); // 오토로트 파일 불러오기
+require_once("autoload.php"); // 오토로드 파일 불러오기
 
 
 // 라우터 호출
