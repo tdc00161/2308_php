@@ -38,7 +38,13 @@
 				<div class="card-body">
 					<h5 class="card-title"><?php echo $item["b_title"] ?></h5>
 					<p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..." ?></p>
-					<button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+					<!-- <button id="btnDetail" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button> -->
+					<!-- return false 는 처리 여기서 종료하겠다는 의미 -->
+					<button
+						class="btn btn_primary"
+						onclick="openDetail(<?php echo $item['id'] ?>); return false;" 
+					>상세
+					</button>
 				</div>
     	  	</div>
 		<?php		
@@ -51,20 +57,22 @@
 		Launch demo modal
   	</button> -->
 
-	<!-- modal -->
-	<div class="modal" id="modalDetail" tabindex="-1">
+	<!-- 상세 modal -->
+	<div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-scrollable">
 		  <div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title">개발자입니다.</h5>
-			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  <h5 class="modal-title" id="b_title" >개발자입니다.</h5>
+			  <button type="button" onclick="closeDetailModal(); return false;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-			  <p> 안녕하세요 개발자입니다. 살려주세요 </p>
-			  <img src="#" alt="">
+			  <p>작성일 : <span id="created_at"></span></p>
+			  <p>수정일 : <span id="updated_at"></span></p>
+			  <p id="b_content"> 안녕하세요 개발자입니다. 살려주세요 </p>
+			  <img id="b_img" src="" class="card-img-top" alt="">
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+			  <button type="button" onclick="closeDetailModal(); return false;" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 			</div>
 		  </div>
 		</div>

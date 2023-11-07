@@ -12,6 +12,8 @@ class ParentsController {
 
 	private $arrNeedAuth = [
 		"board/list"
+		,"board/add"
+		,"board/detail" 
 	]; //권한이 필요한 사이트 작성
 
 	public function __construct($action) {

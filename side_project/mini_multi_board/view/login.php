@@ -26,6 +26,7 @@
 			  <input type="password" class="form-control" id="u_pw" name="u_pw">
 			</div>
 			<button type="submit" class="btn btn-dark">로그인</button>
+			<a href="/user/regist" class="btn btn-secondary">회원가입</a>
 		  </form>
 	</main>
 
