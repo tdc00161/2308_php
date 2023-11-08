@@ -57,6 +57,10 @@ class Router {
 			if($method === "GET") {
 				new BoardController("detailGet");
 			}
+		} else if($url === "board/count"){
+			if($method === "GET") {
+				new UserController("countGet");
+			}
 		}
 
 		// 없는 경로일 경우

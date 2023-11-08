@@ -57,3 +57,31 @@ function closeDetailModal() {
 	MODAL.classList.remove('show');
 	MODAL.style = 'display: none;';
 }
+
+function idchk() {
+	// const U_ID = document.querySelector('#u_id').value;
+	// const URL = '/board/count?u_id='+U_ID;
+	// // url 을 post 로 보내는 방식 작성
+
+	// fetch(URL)
+	// .then( response => response.json() )
+	// .then( data => {
+	// 	// 요소에 데이터 셋팅
+	// 	let countError = data.data.cnt !==0 ? '가능':'불가능';
+	// 	window.alert('중복된 아이디입니다.');
+
+	const INPUT_ID = document.getElementById('u_id');
+	const URL = ' /user/idchk' ;
+	const HEADER = {
+		method: "GET"
+		,body: {
+			"u_id": INPUT_ID.value
+		}
+	};
+
+		// DATE.innerHTML = '작성일: ' + data.data.created_at + ' / 수정일: '  + data.data.updated_at;
+
+	})
+	.catch( error => console.log(error) )
+
+}

@@ -34,6 +34,32 @@ class UserModel extends ParentsModel {
 		}
 	}
 
+	// 중복 체크
+	public function registIdChk($arrregistIdChkInfo) {
+		$sql =
+			" SELECT "
+			." count(*) as cnt "
+			." FROM user"
+			." WHERE "
+			." u_id = :u_id ";
+
+		$prepare = [
+			":u_id" => $arrregistIdChkInfo["u_id"]
+		];
+
+		try {
+			$stmt = $this -> conn -> prepare($sql);
+			$stmt -> execute($prepare);
+			$result = $stmt->fetchAll();
+			return $result;
+		} catch(Exception $e) {
+			echo "UserModel->arrregistIdChkInfo Error : ".$e->getMessage();
+			exit();
+		}
+	}
+
+
+
 	// 유저 정보 insert
 	public function addUserInfo(Array $arrAddUserInfo) {
 			$sql = 

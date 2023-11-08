@@ -3,6 +3,7 @@
 namespace controller;
 
 use model\UserModel;
+use lib\Validation;
 
 class UserController extends ParentsController {
 	// 로그인
@@ -12,11 +13,26 @@ class UserController extends ParentsController {
 
 	// 로그인 처리
 	protected function loginPost() {
+		$inputData = [
+			"u_id" => $_POST["u_id"]
+			,"u_pw" => $_POST["u_pw"]
+		];
+
+		// 유효성 체크(암호화 하기전 데이터로 유효성 체크를 해야함)
+		if(!Validation::userChk($inputData)) {
+			$this->arrErrorMsg = Validation::getArrErrorMsg();
+			return "view/login.php";
+		}
+
+		
 		// ID, PW 설정(DB에서 사용할 데이터 가공)
 		$arrInput = [];
 		$arrInput["u_id"] = $_POST["u_id"];
 		$arrInput["u_pw"] = $this -> encryptionPassword($_POST["u_pw"]);
 
+	
+
+		// 유저정보 획득
 		$modelUser = new UserModel();
 		$resultUserInfo = $modelUser -> getUserInfo($arrInput, true);
 
@@ -46,47 +62,37 @@ class UserController extends ParentsController {
 	}
 
 
-
 	// 회원가입 페이지 이동
 	protected function registGet() {
 		return "view/regist"._EXTENSION_PHP;
 	}
 
+
 	// 회원가입 처리
 	protected function registPost() {
-		$u_id = $_POST["u_id"];
-		$u_pw = $_POST["u_pw"];
-		$u_name = $_POST["u_name"];
-		$arrAddUserInfo = [
-			"u_id" => $u_id
-			,"u_pw" => $this -> encryptionPassword($u_pw)
-			,"u_name" => $u_name
+		$inputData = [
+			"u_id" => $_POST["u_id"]
+			,"u_pw" => $_POST["u_pw"]
+			,"u_pw_chk" => $_POST["u_pw_chk"]
+			,"u_name" => $_POST["u_name"]
 		];
 
-		$patternId = "/^[a-zA-Z0-9]{8,20}$/";
-		$patternPw = "/^[a-zA-Z0-9!@]{8,20}$/";
-		$patternName = "/^[a-zA-Z가-힣]{2,50}$/";
+		$arrAddUserInfo = [
+			"u_id" => $_POST["u_id"]
+			,"u_pw" => $this->encryptionPassword($_POST["u_pw"])
+			,"u_name" => $_POST["u_name"]
+		];
 
-		if(preg_match($patternId, $u_id, $match) === 0) {
-			// ID 에러처리
-			$this -> arrErrorMsg[] = "아이디는 영어대소문자와 숫자로 8~20자 입력해 주세요. ";
-		}
-		if(preg_match($patternPw, $u_pw, $match) === 0) {
-			// PW 에러처리
-			$this -> arrErrorMsg[] = "비밀번호는 영어대소문자와 숫자, !, @로 8~20자 입력해 주세요. ";
-		}
-		if(preg_match($patternName, $u_name, $match) === 0) {
-			// Name 에러처리
-			$this -> arrErrorMsg[] = "이름은 영어대소문자와 한글로 2~50자 입력해 주세요. ";
-		}
+		// TODO : 발리데이션 체크
+		
+		// DB에꺼를 
 
-		// TODO : 아이디 중복 체크 필요
-
-
-		// 유효성 체크 실패
-		if(count($this->arrErrorMsg) > 0) {
+		// 유효성 체크
+		if(!Validation::userChk($inputData)) {
+			$this->arrErrorMsg = Validation::getArrErrorMsg();
 			return "view/regist.php";
 		}
+
 
 		// 인서트 처리
 		$userModel = new UserModel();
@@ -103,6 +109,36 @@ class UserController extends ParentsController {
 		return "Location: /user/login";
 	}
 
+	// TODO : 아이디 중복 체크 필요
+	protected function countGet() {
+		$arrregistIdChkInfo = [
+			"u_id" => $_GET["u_id"]
+		];
+
+		$modelUser = new UserModel();
+		$resultIdChkInfo = $modelUser -> registIdChk($arrregistIdChkInfo);
+		// var_dump($resultIdChkInfo);
+		if($resultIdChkInfo[0]['cnt'] !== 0) {
+			$this -> arrErrorMsg[] = "아이디 다시 확인해주세요.";
+			// return "view/login.php";
+		}
+
+		// 레스폰스 데이터 작성
+		$arrTmp = [
+			"errflg" => "0"
+			,"msg" => ""
+			,"data" => $resultIdChkInfo[0]
+		];
+
+		$response = json_encode($arrTmp); // json 형태로 변환
+
+		// response 처리
+		header('Content-type: application/json');
+		echo $response;
+		exit();
+
+	}
+	
 
 	// 비밀번호 암호화
 	private function encryptionPassword($pw) {
