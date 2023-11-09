@@ -1,0 +1,44 @@
+CREATE DATABASE test;
+
+USE test;
+
+CREATE TABLE USER(
+	id int PRIMARY KEY auto_increment
+	,NAME VARCHAR(30) NOT NULL
+	,birth DATE not null
+	,created_at DATETIME DEFAULT CURRENT_TIMESTAMP ()
+);
+
+CREATE TABLE product(
+	id int PRIMARY KEY auto_increment
+	,p_name VARCHAR(100) NOT NULL
+	,p_price int NOT NULL
+
+);
+
+CREATE TABLE delivery(
+	id int PRIMARY KEY auto_increment
+	,delivery_flg CHAR(1) DEFAULT '0'
+	,u_id INT NOT null
+	,p_id INT NOT null
+
+);
+
+
+ALTER TABLE delivery
+ADD CONSTRAINT fk_delivery_u_id FOREIGN KEY (u_id)
+REFERENCES USER(id);
+
+ALTER TABLE delivery
+ADD CONSTRAINT fk_delivery_p_id FOREIGN KEY (p_id)
+REFERENCES product(id);
+
+COMMIT;
+
+DROP TABLE 테이블 명; //삭제하는 명령어
+DELETE 레코드 삭제; > 롤백이 가능함
+DELETE FROM 
+
+TRUNCATE TABLE 테이블 명 > 롤백이 안먹힘
+
+DDL/DML /DCL

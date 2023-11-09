@@ -15,28 +15,43 @@ a {
 }
 
 header {
-	margin-top: 30px;
+	margin-top: 100px;
 	font-size: 50px;
-	font-weight: 800;
-	line-height: 100px;
+	line-height: 200px;
 	text-align: center;
-	background-color: lightblue;
 }
-
 
 .list_main {
 	margin-top: 30px;
-	/* width: 700px; */
+	margin: 0 auto;
+	width: 1000px;
 	text-align: center;
 }
 
-.list_table {
-	/* width: 1000px; */
-	text-align: center;
-	margin: 0 auto;
+.list_btn {
+	margin-left: 85%;
 }
 
 .list_th, .list_td {
 	border-bottom: 1px solid black;
 	border-collapse: collapse;
+}
+
+.insert_main {
+	width: 600px;
+	height: 700px;
+	border: 1px solid none;
+	background-color: rgb(197, 225, 241);
+	border-radius: 20px;
+	padding: 40px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.insert_div {
+	margin-left: 75%;
+}
+
+.detail_div {
+	margin-left: 60%;
 }

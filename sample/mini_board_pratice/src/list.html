@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="/sample/mini_board_pratice/src/common.css">
 	<title>메인페이지</title>
 </head>
@@ -10,12 +11,12 @@
 	<header><h1>공지사항</h1></header>
 	<main class="list_main">
 		<br><br>
-		<a href="">글작성</a>
+		<a class="list_btn" class="btn btn-outline-dark" href="">글작성</a>
 		<br><br>
 		<form action="">
-			<table cLass="list_table">
+			<table class="table table-hover" class="list_table">
 				<thead>
-					<tr class="list_tr">
+					<tr class="table-info">
 						<th class="list_th">글번호</th>
 						<th class="list_th">제목</th>
 						<th class="list_th">작성자</th>
@@ -33,13 +34,14 @@
 			</table>
 			<br><br>
 			<div class="list_div">
-				<a href="#">처음</a>
-				<a href="#">이전</a>
-				<a href="#">1</a>
-				<a href="#">다음</a>
-				<a href="#">마지막</a>
+				<a class="btn btn-primary" href="#">처음</a>
+				<a class="btn btn-primary" href="#">이전</a>
+				<a class="btn btn-primary" href="#">1</a>
+				<a class="btn btn-primary" href="#">다음</a>
+				<a class="btn btn-primary" href="#">마지막</a>
 			</div>
 		</form>
 	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
