@@ -90,15 +90,15 @@ class UserController extends ParentsController {
 		// 유효성 체크
 		$errFlg = "0";
         $errMsg = "";
-        $u_id = $_GET["u_id"];
+        $u_id = $_POST["u_id"];
         $inputData["u_id"] = $u_id;
 
-        if (!VD::userChk($inputData)) {
+        if (!Validation::userChk($inputData)) {
             $errFlg = "1";
-            $errMsg = VD::getArrErrorMsg()[0];
+            $errMsg = Validation::getArrErrorMsg()[0];
         }
         // 모델 인스턴스
-        $userModel = new UM();
+        $userModel = new UserModel();
         // idChk 결과 획득
         $result = $userModel->getUserInfo($inputData);
         // 사용 모델 파기
@@ -135,32 +135,37 @@ class UserController extends ParentsController {
 	}
 
 	// TODO : 아이디 중복 체크 필요
-	protected function countGet() {
-		$arrregistIdChkInfo = [
-			"u_id" => $_GET["u_id"]
-		];
+	protected function idChkGet() {
+		$errFlg = "0";
+        $errMsg = "";
+        $u_id = $_GET["u_id"];
+        $inputData["u_id"] = $u_id;
+		
+        // 유효성 체크
+        if (!Validation::userChk($inputData)) {
+            $errFlg = "1";
+            $errMsg = Validation::getArrErrorMsg()[0];
+        }
+        // 모델 인스턴스
+        $userModel = new UserModel();
 
-		$modelUser = new UserModel();
-		$resultIdChkInfo = $modelUser -> registIdChk($arrregistIdChkInfo);
-		// var_dump($resultIdChkInfo);
-		if($resultIdChkInfo[0]['cnt'] !== 0) {
-			$this -> arrErrorMsg[] = "아이디 다시 확인해주세요.";
-			// return "view/login.php";
-		}
+        // idChk 결과 획득
+        $result = $userModel->getUserInfo($inputData);
 
-		// 레스폰스 데이터 작성
-		$arrTmp = [
-			"errflg" => "0"
-			,"msg" => ""
-			,"data" => $resultIdChkInfo[0]
-		];
-
-		$response = json_encode($arrTmp); // json 형태로 변환
-
-		// response 처리
-		header('Content-type: application/json');
-		echo $response;
-		exit();
+        // 사용 모델 파기
+        $userModel->destroy();
+        if(count($result) > 0) {
+            $errFlg = "1";
+            $errMsg = "중복된 아이디입니다.";
+        }
+        $response = [
+            "errflg" => $errFlg
+            ,"msg" => $errMsg
+        ];
+        // response 처리
+        header('Content-type: application/json');
+        echo json_encode($response); // 값을 출력해서 그냥 주는 듯
+        exit();
 
 	}
 	

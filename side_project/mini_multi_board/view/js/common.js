@@ -11,7 +11,6 @@
 // 	MODAL.classList.add('displayNone');
 // } );
 
-let test;
 
 // 상세 모달 제어
 function openDetail(id) {
@@ -27,13 +26,24 @@ function openDetail(id) {
 		const IMG = document.querySelector('#b_img');
 		const CREATED_AT = document.querySelector('#created_at')
 		const UPDATED_AT = document.querySelector('#updated_at')
+		const DEL_INPUTT = document.querySelector('#del_id')
+		const BTN_DEL = document.querySelector('#btn-del')
 
 		TITLE.innerHTML = data.data.b_title;
 		CONTENT.innerHTML = data.data.b_content;
 		CREATED_AT.innerHTML = data.data.created_at;
 		UPDATED_AT.innerHTML = data.data.updated_at;
 		IMG.setAttribute('src', data.data.b_img);
+		DEL_INPUTT.value = data.data.id;
 		// DATE.innerHTML = '작성일: ' + data.data.created_at + ' / 수정일: '  + data.data.updated_at;
+		// DELETE.setAttribute('href', '/board/detail?id='+ data.data.id + data.data.b_type);
+
+		// 삭제 버튼 표시 처리
+		if(data.data.uflg === "1") {
+			BTN_DEL.classList.remove('d-none');
+		} else {
+			BTN_DEL.classList.add('d-none');
+		}
 
 		// 모달 오픈
 		openModal();
@@ -44,7 +54,7 @@ function openDetail(id) {
 
 }
 
-// 모달 오픈 함수
+// 모달 오픈 함수detailGet
 function openModal() {
 	const MODAL = document.querySelector('#modalDetail');
 	MODAL.classList.add('show');
@@ -63,22 +73,45 @@ function idChk() {
     const ERRMSG = document.querySelector('#idChkMsg');
     ERRMSG.innerHTML = ""; // 리셋
     const URL = '/user/idchk?u_id=' + U_ID;
-fetch(URL)
-        .then(res => res.json())
-        .then(arr => {
-            if (arr.errflg === '0') {
-                ERRMSG.innerHTML = '사용 가능한 아이디입니다.';
-                ERRMSG.classList = 'text-success';
-            } else {
-                ERRMSG.innerHTML = '사용할 수 없는 아이디입니다.';
-                ERRMSG.classList = 'text-danger';
-            }
-        })
-        .catch(err => console.log(err))
+
+	fetch(URL)
+	.then(res => res.json())
+	.then(arr => {
+		if (arr.errflg === '0') {
+			ERRMSG.innerHTML = '사용 가능한 아이디입니다.';
+			ERRMSG.classList = 'text-success';
+		} else {
+			ERRMSG.innerHTML = '사용할 수 없는 아이디입니다.';
+			ERRMSG.classList = 'text-danger';
+		}
+	})
+	.catch(err => console.log(err))
 } 
 
+//삭제처리
+function deleteCard () {
+	const B_PK = document.querySelector('#del_id').value;
+	const URL = '/board/remove?id=' + B_PK;
 
+	fetch(URL)
+	.then( response => response.json())
+	.then( data => {
+		if(data.errflg === "0") {
+			// 모달 닫기
+			closeDetailModal();
 
+			// 카드 삭제
+			const MAIN = document.querySelector('main');
+			const CARD_NAME = '#card' + data.id;
+			const DEL_CARD = document.querySelector(CARD_NAME);
+			MAIN.removeChild(DEL_CARD);
+		} else {
+			alert(data.msg);
+		}
+	})
+	.catch(error => console.log(error))
+
+}
 // function idchk() {
 	// const U_ID = document.querySelector('#u_id').value;
 	// const URL = '/board/count?u_id='+U_ID;

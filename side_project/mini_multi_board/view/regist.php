@@ -13,11 +13,12 @@
 	?>
 
 	<main class="d-flex justify-content-center align-items-center h-75">
-		<form style="width: 300px" action="/user/regist" method ="POST">
+		<form style="width: 300px" action="/user/regist" method ="POST">			
 			<div class="mb-3">
 			  <label for="u_id" class="form-label">아이디</label>
 			  <input type="text" class="form-control" id="u_id" name="u_id" minlength="8" maxlength="20">
-			  <button type="submit" onclick="idchk(); return false;">확인</button>
+			  <button type="button" onclick="idChk(); return false;">확인</button>
+			  <span id="idChkMsg"></span>
 			  <!-- return false; < php 구문에서 exit()와 동일한 역할-->
 
 			</div>

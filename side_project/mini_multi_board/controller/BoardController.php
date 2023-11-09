@@ -109,6 +109,10 @@ class BoardController extends ParentsController {
 		 // 이미지 패스 재설정
 		$result[0]["b_img"] = "/"._PATH_USERIMG.$result[0]["b_img"];
 
+		// 작성 유저 플래그 설정
+		$result[0]["uflg"] = $result[0]["u_pk"] === $_SESSION["u_pk"] ? "1" : "0" ; 
+
+
 		// 레스폰스 데이터 작성
 		$arrTmp = [
 			"errflg" => "0"
@@ -122,17 +126,46 @@ class BoardController extends ParentsController {
 		header('Content-type: application/json');
 		echo $response;
 		exit();
+
+
 	}
 
-	protected function deleteGet() {
-		$id = $_GET["id"];
 
-		$arrBoardDeleteInfo = [
-			"id" => $id
+	// 삭제 처리 API
+	protected function removeGet() {
+		$errFlg = "0";
+		$errMsg = "";
+		$arrDeleteBoardInfo = [
+			"id" => $_GET["id"]
+			,"u_pk" => $_SESSION["u_pk"]
+		];
+		
+		// 삭제처리
+		$boardModel = new BoardModel();
+		$boardModel->beginTransaction();
+		$result = $boardModel->removeBoardCard($arrDeleteBoardInfo);
+		if($result !== 1) {
+			$errFlg = "1";
+			$errMsg = "삭제 처리 이상";
+			$boardModel->rollBack();
+		} else {
+			$boardModel->commit();
+		}
+		$boardModel->destroy();
+
+
+		// 레스폰스 데이터 작성
+		$arrTmp = [
+			"errflg" => $errFlg
+			,"msg" => $errMsg
+			,"id" => $arrDeleteBoardInfo["id"]
 		];
 
-		$boardModel = new BoardModel();
-		$result = $boardModel->getBoardDelete($arrBoardDeleteInfo);
-	}
+		$response = json_encode($arrTmp); // json 형태로 변환
 
+		// response 처리
+		header('Content-type: application/json');
+		echo $response;
+		exit();
+	}
 }

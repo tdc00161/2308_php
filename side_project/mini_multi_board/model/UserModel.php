@@ -20,7 +20,6 @@ class UserModel extends ParentsModel {
 		if($pwFlg) {
 			$sql .= " AND u_pw = :u_pw ";
 			$prepare[":u_pw"] = $arrUserInfo["u_pw"];
-
 		}
 
 		try {

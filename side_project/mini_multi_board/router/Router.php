@@ -57,9 +57,13 @@ class Router {
 			if($method === "GET") {
 				new BoardController("detailGet");
 			}
-		} else if($url === "board/count"){
+		} else if($url === "user/idchk"){
 			if($method === "GET") {
-				new UserController("countGet");
+				new UserController("idChkGet");
+			}
+		} else if($url === "board/remove"){
+			if($method === "GET") {
+				new BoardController("removeGet");
 			}
 		}
 
