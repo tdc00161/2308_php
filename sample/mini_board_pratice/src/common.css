@@ -31,7 +31,7 @@ header {
 }
 
 .list_table {
-	width: 1000px;
+	/* width: 1000px; */
 	text-align: center;
 	margin: 0 auto;
 }

@@ -58,7 +58,28 @@ function closeDetailModal() {
 	MODAL.style = 'display: none;';
 }
 
-function idchk() {
+function idChk() {
+    const U_ID = document.querySelector('#u_id').value;
+    const ERRMSG = document.querySelector('#idChkMsg');
+    ERRMSG.innerHTML = ""; // 리셋
+    const URL = '/user/idchk?u_id=' + U_ID;
+fetch(URL)
+        .then(res => res.json())
+        .then(arr => {
+            if (arr.errflg === '0') {
+                ERRMSG.innerHTML = '사용 가능한 아이디입니다.';
+                ERRMSG.classList = 'text-success';
+            } else {
+                ERRMSG.innerHTML = '사용할 수 없는 아이디입니다.';
+                ERRMSG.classList = 'text-danger';
+            }
+        })
+        .catch(err => console.log(err))
+} 
+
+
+
+// function idchk() {
 	// const U_ID = document.querySelector('#u_id').value;
 	// const URL = '/board/count?u_id='+U_ID;
 	// // url 을 post 로 보내는 방식 작성
@@ -70,18 +91,20 @@ function idchk() {
 	// 	let countError = data.data.cnt !==0 ? '가능':'불가능';
 	// 	window.alert('중복된 아이디입니다.');
 
-	const INPUT_ID = document.getElementById('u_id');
-	const URL = ' /user/idchk' ;
-	const HEADER = {
-		method: "GET"
-		,body: {
-			"u_id": INPUT_ID.value
-		}
-	};
+	// const INPUT_ID = document.getElementById('u_id');
+	// const URL = ' /user/idchk' ;
+	// const HEADER = {
+	// 	method: "GET"
+	// 	,body: {
+	// 		"u_id": INPUT_ID.value
+	// 	}
+	// };
+
+	// fetch()
 
 		// DATE.innerHTML = '작성일: ' + data.data.created_at + ' / 수정일: '  + data.data.updated_at;
 
-	})
-	.catch( error => console.log(error) )
+// 	})
+// 	.catch( error => console.log(error) )
 
-}
+// }

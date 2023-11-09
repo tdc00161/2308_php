@@ -88,10 +88,35 @@ class UserController extends ParentsController {
 		// DB에꺼를 
 
 		// 유효성 체크
-		if(!Validation::userChk($inputData)) {
-			$this->arrErrorMsg = Validation::getArrErrorMsg();
-			return "view/regist.php";
-		}
+		$errFlg = "0";
+        $errMsg = "";
+        $u_id = $_GET["u_id"];
+        $inputData["u_id"] = $u_id;
+
+        if (!VD::userChk($inputData)) {
+            $errFlg = "1";
+            $errMsg = VD::getArrErrorMsg()[0];
+        }
+        // 모델 인스턴스
+        $userModel = new UM();
+        // idChk 결과 획득
+        $result = $userModel->getUserInfo($inputData);
+        // 사용 모델 파기
+        $userModel->destroy();
+        if(count($result) > 0) {
+            $errFlg = "1";
+            $errMsg = "중복된 아이디입니다.";
+        }
+        $response = [
+            "errflg" => $errFlg
+            ,"msg" => $errMsg
+        ];
+        // response 처리
+        header('Content-type: application/json');
+        echo json_encode($response); // 값을 출력해서 그냥 주는 듯
+        exit();
+
+
 
 
 		// 인서트 처리

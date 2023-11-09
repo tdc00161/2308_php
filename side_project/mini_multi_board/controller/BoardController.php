@@ -122,8 +122,17 @@ class BoardController extends ParentsController {
 		header('Content-type: application/json');
 		echo $response;
 		exit();
+	}
 
+	protected function deleteGet() {
+		$id = $_GET["id"];
 
+		$arrBoardDeleteInfo = [
+			"id" => $id
+		];
+
+		$boardModel = new BoardModel();
+		$result = $boardModel->getBoardDelete($arrBoardDeleteInfo);
 	}
 
 }
