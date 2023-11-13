@@ -145,3 +145,24 @@ Route::get('/test', [TestController::class, 'index'])
 
 use App\Http\Controllers;
 Route::resource('/task', TaskController::class);
+
+
+
+// 블레이드  템플릿 용
+Route::get('/child1', function () {
+    $arr = [
+        'name' => '홍길동'
+        ,'age' => 130
+        ,'gender' => '여자'
+    ];
+    $arr2 = [];
+    return view('child1')
+            ->with('gender','3')
+            ->with('data', $arr)
+            ->with('data2', $arr2);
+});
+    
+
+Route::get('/child2', function () {
+    return view('child2');
+});
