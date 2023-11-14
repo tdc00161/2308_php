@@ -83,6 +83,9 @@ php artisan migrate
 // migration vs migrate 비교
 전자는 명사, 후자는 동사로 후자는 실행시킬때 사용
 
+// laravel_edu 새로 생성
+composer create-project laravel/laravel="9" laravel_board
+
 
 
 
