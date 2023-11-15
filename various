@@ -104,6 +104,12 @@ composer create-project laravel/laravel="9" laravel_board
 
 ? 궁금해요!
 - with 에 대한 사용원리
+*컨트롤러 파일에 'with(변수명, 변수값);'
+작성후 뷰로 리턴하게 되면 값을 담은 변수명을
+
 - 데이터 베이스에서는 삭제하고 롤백하면 이전으로 돌아가고 impor? 작성하면 롤백 못하게
 날라갔었는데, 라라벨에서도 reset 이 db 에서 얘기하던 impor? 이랑 동일한건가?
 
+dml -살릴수 있는 기회가 있고 select, insert , delete
+ddl - 살릴수 없다.
+마이그레이션 리셋은 디비에 드롭개념이라서 되돌릴 수 없음
