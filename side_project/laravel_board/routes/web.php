@@ -21,12 +21,11 @@ Route::get('/', function () {
 
 // 유저관련
 Route::get('/user/login', [UserController::class, 'loginget'])->name('user.login.get'); //로그인 화면 이동
-Route::post('/user/login', [UserController::class,'loginpost'])->name('user.login.post'); //로그인 처리
-
+Route::middleware('my.user.validation')->post('/user/login',[UserController::class,'loginpost'])->name('user.login.post'); //로그인 처리
 Route::get('/user/logout', [UserController::class,'logoutget'])->name('user.logout.get'); //로그아웃 처리
 
 Route::get('/user/registration', [UserController::class,'registrationget'])->name('user.registration.get'); //회원가입 화면 이동
-Route::post('/user/registration', [UserController::class,'registrationpost'])->name('user.registration.post'); //회원가입 처리 이동
+Route::middleware('my.user.validation')->post('/user/registration',[UserController::class,'registrationpost'])->name('user.registration.post'); //회원가입 처리 이동
 
 // GET|HEAD        user ............................. user.index › UserController@index  로그인 화면이동
 // GET|HEAD        user/{user}/edit ................... user.edit › UserController@edit  로그인 처리
@@ -41,7 +40,9 @@ Route::post('/user/registration', [UserController::class,'registrationpost'])->n
 
 // 보드 관련
 // 라우트에 해당하는 리소스들 다 오는 방법: php artisan route:list
-Route::resource('/board', BoardController::class);
+Route::middleware('auth')->resource('/board', BoardController::class);
+// 인증관련이기에 라우트 시작하기전에 설정해야해서 앞쪽으로 작성,
+// 필요에 따라 뒤에 작성도 가능함
 // GET|HEAD        board ..................board.index › BoardController@index
 // POST            board ..................board.store › BoardController@store
 // GET|HEAD        board/create ...........board.create › BoardController@create
@@ -49,3 +50,5 @@ Route::resource('/board', BoardController::class);
 // PUT|PATCH       board/{board} ..........board.update › BoardController@update
 // DELETE          board/{board} ..........board.destroy › BoardController@destroy
 // GET|HEAD        board/{board}/edit .....board.edit › BoardController@edit
+
+// board/{}<- 요게 세그먼트

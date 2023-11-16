@@ -22,19 +22,21 @@ class UserController extends Controller
    }
    public function loginpost(Request $request) {
 
-     // 유효성 검사
-     $validator = Validator::make(
-          $request->only('email', 'password')
-          ,[
-               'email' => 'required|email|max:50'
-               ,'password' => 'required'
-          ]
-     );
+     /* del 231116 미들웨어로 이관
+     // // 유효성 검사
+     // $validator = Validator::make(
+     //      $request->only('email', 'password')
+     //      ,[
+     //           'email' => 'required|email|max:50'
+     //           ,'password' => 'required'
+     //      ]
+     // );
 
-     // 유효성 검사 실패시 처리
-     if($validator->fails()){
-          return view('login')->withErrors($validator->errors());
-     }
+     // // 유효성 검사 실패시 처리
+     // if($validator->fails()){
+     //      return view('login')->withErrors($validator->errors());
+     // }
+     */
      
      // 유저 정보 습득
      $result = User::where('email', $request->email)->first();
@@ -63,22 +65,22 @@ class UserController extends Controller
    }
    public function registrationpost(Request $request) {
 
-     // 유효성 검사
-     $validator = Validator::make(
-          $request->only('email', 'password', 'passwordchk', 'name')
-          ,[
-               'email' => 'required|email|max:50'
-               // '검사할 값' => '필수사항에서는 required 작성 |(또는)email|
-               ,'name' => 'required|regex:/^[a-zA-Z가-힣]+$/|min:2|max:50'
-               ,'password' => 'required|same:passwordchk'
-          ]
-     );
-     // var_dump($validator->errors()->all());
+     // // 유효성 검사
+     // $validator = Validator::make(
+     //      $request->only('email', 'password', 'passwordchk', 'name')
+     //      ,[
+     //           'email' => 'required|email|max:50'
+     //           // '검사할 값' => '필수사항에서는 required 작성 |(또는)email|
+     //           ,'name' => 'required|regex:/^[a-zA-Z가-힣]+$/|min:2|max:50'
+     //           ,'password' => 'required|same:passwordchk'
+     //      ]
+     // );
+     // // var_dump($validator->errors()->all());
 
-     // 유효성 검사 실패시 처리
-     if($validator->fails()){
-          return view('registration')->withErrors($validator->errors());
-     }
+     // // 유효성 검사 실패시 처리
+     // if($validator->fails()){
+     //      return redirect('registration')->withErrors($validator->errors());
+     // }
 
      // 데이터 베이스에 저장할 데이터 획득
      $data = $request->only('email', 'password', 'name');

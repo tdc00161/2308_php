@@ -11,4 +11,9 @@ class Board extends Model
 
     protected $primaryKey = 'b_id';
 
+    //fillable 
+   protected $fillable = [
+       'b_title',
+       'b_content'
+   ];
 }
