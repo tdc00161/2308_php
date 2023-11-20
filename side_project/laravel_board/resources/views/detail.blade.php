@@ -38,8 +38,10 @@
             <form action="{{route('board.destroy', ['board' => $data->b_id])}}" method="POST">
                 @csrf
                 @method('DELETE')
-            <button type='submit' class="btn btn-primary" >삭제</button>
+                <button type='submit' class="btn btn-primary" >삭제</button>
             </form>
+            <a href="{{route('board.index')}}" class="btn btn-secondary">취소</a>
+            <a href="{{route('board.edit', ['board' => $data->b_id])}}" class="btn btn-danger">수정</a>
             {{-- @forelse($data as $item)
                 <div>{{ $item->b_id}}</div>
                 <div>{{ $item->b_title}}</div>

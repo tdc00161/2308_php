@@ -62,6 +62,9 @@ Route::delete('/home', function() {
     return '메소드 : DELETE';
 });
 
+Route::get('/now', function(){
+    return '이쪽은 나우홈페이지 입니다.';
+});
 
 // ------------------------
 // 라우트에서 파라미터 제어

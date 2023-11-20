@@ -13,7 +13,7 @@ class BoardController extends Controller
         // --------------------
         // $result = DB::select('select * from boards limit 10');
 
-        // $result = DB::select('select * from boards limit :no offset :no2', ['no' => 1]);
+        // $result = DB::select('select * from boards limit :no offset :no2', ['no' => 1, 'no2' => 10]);
         // $result = DB::select('select * from boards limit ? offset ?', [2, 10]);
 
         // 카테고리가 4, 7, 8 인 게시글의 수를 출력해 주세요.
@@ -23,6 +23,8 @@ class BoardController extends Controller
                               where categories_no = ?
                                     or categories_no = ?
                                     or categories_no = ?',$arr);
+        // categories_no = ? < 문법임.
+
 
 
         // 카테고리별 게시글 갯수를 출력해 주세요.

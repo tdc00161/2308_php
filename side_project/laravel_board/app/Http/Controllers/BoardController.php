@@ -117,7 +117,11 @@ class BoardController extends Controller
      */
     public function edit($id)
     {
-        return redirect()->route('board.index');
+        // $result->find($id);
+        $result = board::find($id);
+        return view('update')->with('data',$result);
+
+
     }
 
     /**
@@ -129,7 +133,15 @@ class BoardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $result=
+        
+
+        // $result = 
+        Board::find($id)
+        ->update($request->only('b_title', 'b_content'));
+        // ->save();
+
+        return redirect()->route('board.show',$id);
+        // 원래는 try catch 로 해줘야 함.
     }
 
     /**

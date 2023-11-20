@@ -48,6 +48,7 @@ Route::middleware('auth')->resource('/board', BoardController::class);
 // GET|HEAD        board/create ...........board.create › BoardController@create
 // GET|HEAD        board/{board} ..........board.show › BoardController@show
 // PUT|PATCH       board/{board} ..........board.update › BoardController@update
+// 단순적 수정을 할 경우에는 put 을 사용하게 됨
 // DELETE          board/{board} ..........board.destroy › BoardController@destroy
 // GET|HEAD        board/{board}/edit .....board.edit › BoardController@edit
 
