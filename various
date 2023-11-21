@@ -81,6 +81,14 @@ database
 왜? ctrl+c 가 이전 작업 실행종료를 시키는 키
 
 ----------------------------------
+<라라벨 서버로 폴더 생성>
+composer create-project laravel/laravel 폴더명
+
+<서버 여는 명령어>
+php artisan serve
+
+
+
 <터미널 통해서 db 테이블 생성 및 수정, 실행>
 
 // 테이블 생성
