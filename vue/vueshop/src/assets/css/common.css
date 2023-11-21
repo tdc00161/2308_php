@@ -53,3 +53,11 @@
     /* opacity: 0; */
     transform: translateY(1000px);
   }
+
+  .discount {
+    background-color: beige;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
