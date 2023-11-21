@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0, auto;
+}
+header {
+    font-size: 8rem;
+    text-align: center;
+    background-color: bisque;
+    line-height: 80px;
+    margin: 0, auto;
+
+}
+
+footer {
+    background-color: darkgray;
+    height: 300px;
+    margin-left: 40px;
+}
+
+.login_main {
+    width: 400px;
+    height: 500px;
+    padding: 30px;
+    border: none;
+    background-color: lightgray;
+}

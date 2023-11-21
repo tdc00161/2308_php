@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('main');
 });
+
+Route::get('/login', [UserController::class,'loginget'])->name('login.get'); //로그인 화면 이동
+Route::get()
+
+
