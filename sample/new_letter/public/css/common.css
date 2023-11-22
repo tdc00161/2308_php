@@ -1,32 +1,132 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 body {
     box-sizing: border-box;
     width: 100vw;
-    margin: 0, auto;
+    height: 100vh;
 }
 header {
-    font-size: 8rem;
-    text-align: center;
+    width: 100%;
+    height: 250px;
     background-color: bisque;
-    line-height: 80px;
-    margin: 0, auto;
+    text-align: right;
+}
+
+.header_p {
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 250px;
+}
+
+.header_input {
+    margin-left: 200px;
+    width: 300px;
+    height: 50px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+.header_btn {
+    margin: 0;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+main {
+    background-color: rgb(249, 194, 91);
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 250px;
 
 }
 
 footer {
+    width: 100%;
+    height: 250px;
     background-color: darkgray;
-    height: 300px;
-    margin-left: 40px;
+    position: absolute;
+    margin-bottom: 0;
+    padding: 50px;
+    line-height: 20px;
 }
 
-.login_main {
-    width: 400px;
-    height: 500px;
+form {
+    display: inline-block;
+    margin: 30%;
+}
+
+.login_div {
+
+    width: 600px;
+    height: 800px;
     padding: 30px;
+    font-size: 2rem;
+    border-radius: 20px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.login_title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.login_hr {
+    border: 2px solid black;
+}
+
+input {
+    width: 550px;
+    height: 80px;
+    border: 1px solid black;
+    background-color: #fff;
+    font-size: 1.5rem;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.login_pw {
+    font-size: 1.5rem;
+    text-decoration: underline;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.login_rg {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.login_btn {
+    width: 550px;
+    height: 80px;
     border: none;
-    background-color: lightgray;
+    background-color: black;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.login_bt {
+    width: 550px;
+    height: 80px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 30px;
 }
