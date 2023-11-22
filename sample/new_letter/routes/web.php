@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [UserController::class,'loginget'])->name('login.get'); //로그인 화면 이동
-Route::get()
+// Route::get()
 
 
