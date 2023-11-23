@@ -9,4 +9,6 @@ class UserController extends Controller
     public function loginget() {
         return view("login");
     }
+
+    pub
 }

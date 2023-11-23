@@ -62,7 +62,7 @@ footer {
     line-height: 20px;
 }
 
-form {
+.login_form {
     display: inline-block;
     margin: 30%;
 }
@@ -127,6 +127,32 @@ input {
     border: 1px solid black;
     background-color: #fff;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
+    display: inline-block;
+}
+
+.login_img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.login_btb {
+    display: inline-block;
+}
+
+.main_ul {
+    list-style: none;
+}
+
+.main_title {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 80px;
+    padding-left: 20px;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(255, 213, 198);
 }

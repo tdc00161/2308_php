@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+// import { createStore } from 'vuex';
 import axios from 'axios';
 
 const store = createStore({
@@ -10,6 +10,7 @@ const store = createStore({
             imgURL: '', // 작성탭 표시용 이미지 URL
             postFileData: null, // 글 작성파일 데이터 저장
             lastBoardId: 0, // 가장 마지막 로드 된 게시글 번호 저장용
+            flgBtnMoreView: true, //더보기 버튼 활성여부 플래그
         }
     },
     // mutations : 데이터 수정용 함수 저장 영역
@@ -20,6 +21,11 @@ const store = createStore({
             state.boardData = data;
             state.lastBoardId = data[data.length - 1].id;
         },
+        // 마지막 게시글 번호 셋팅용
+        setLastBoardId(state, num) {
+            state.setlastBoardId = num;
+        },
+
         // 탭ui 셋팅용
         setFlgTapUI(state, num) {
             state.flgTapUI = num;
@@ -43,10 +49,14 @@ const store = createStore({
         },
         // 데이터 불러오기
         BoardInput(state, data) {
-            state.boardData = data;
-            // state.boardData.push(data);
+            // state.boardData = data;
+            state.boardData.push(data);
+        },
+
+        // 더보기 버튼 활성화 
+        setFlgBtnMoreView(state,boo) {
+            state.flgBtnMoreView = boo;
         }
-        
 
     },
 
@@ -107,7 +117,8 @@ const store = createStore({
             })
         },
         actionBoardInPut(context) {
-            const url='http://112.222.157.156:6006/api/boards/'+'data.id';
+            const url='http://112.222.157.156:6006/api/boards/'+context.state.lastBoardId;
+            console.log(context.state.lastBoardId)
             const header = {
                 headers: {
                     'Authorization':'Bearer meerkat',
@@ -116,7 +127,13 @@ const store = createStore({
 
             axios.get(url , header)
             .then(res => {
-                context.commit('BoardInput', res.data);
+                if(res.data){
+                    // 데이터 있을 경우
+                    context.commit('BoardInput', res.data);
+                } else {
+                    // 데이터 없을 경우
+                    context.commit('setFlgBtnMoreView', false);
+                }
             })
             .catch(err => {console.log(err);
             })

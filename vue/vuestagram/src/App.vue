@@ -20,7 +20,7 @@
   <ContainerComponent></ContainerComponent>
 
   <!-- 더보기 버튼 -->
-  <button @click="setInput">더보기</button>
+  <button @click="actionBoardInPut" v-if="$store.state.flgBtnMoreView && $store.state.flgTapUI === 0 ">더보기</button>
 
   <!-- 푸터 -->
   <div class="footer">

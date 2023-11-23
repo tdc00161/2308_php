@@ -5,12 +5,17 @@
 @section('main')
 <main>
 
-    <form action="">
+    <form class="login_form" action="">
 
         <div class="login_div">
             <p class="login_title">CK CK NEWSLETTER</p>
             <br>
-            <a class="login_bt" href="#">구글로 시작하기</a>
+            <a class="login_bt" href="#">
+                <div class="login_bt_a">
+                    <img class="login_img" src="../public/css/img/google.png" alt="">
+                    <div class="login_btb">구글로 시작하기</div>
+                </div>
+            </a>
             <br>
             <hr class="login_hr">
             <br>

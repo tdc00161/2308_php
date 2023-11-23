@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [UserController::class,'loginget'])->name('login.get'); //로그인 화면 이동
-// Route::get()
+Route::post('/login', [UserController::class,'loginpost'])->name('login.post'); //로그인 처리
 
 
