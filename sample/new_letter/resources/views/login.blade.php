@@ -19,9 +19,9 @@
             <br>
             <hr class="login_hr">
             <br>
-                <input type="text" id=id name=id placeholder="아이디">
+                <input class="login_input" type="text" id=id name=id placeholder="아이디">
             <br>
-                <input type="password" id=pw name=pw placeholder="비밀번호">
+                <input class="login_input" type="password" id=pw name=pw placeholder="비밀번호">
             <br>
             <p class="login_pw">비밀번호를 잊으셨나요?</p>
             <br><br>

@@ -88,7 +88,7 @@ footer {
     border: 2px solid black;
 }
 
-input {
+.login_input {
     width: 550px;
     height: 80px;
     border: 1px solid black;

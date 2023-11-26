@@ -15,9 +15,11 @@
             월/화/수/목/금 아침마다 세상 돌아가는 소식을 메일로 받아보세요.
             <br>
             <input type="email" id="email" name="email" placeholder="이메일 주소">
+            <br>
             <input type="text" id="u_name" name="u_name" placeholder="닉네임">
             <br>
             <label for=""><input type="checkbox" name="agree"><span>개인정보 수집·이용</span>에 동의합니다</label>
+            <br>
             <label for=""><input type="checkbox" name="agree"><span>광고성 정보 수신</span>에 동의합니다</label>
 
             <br><br>
@@ -25,17 +27,17 @@
             <a href="#">앱 다운로드하기 →</a>
         </div>
         <ul class="main_ul">
-            <li><a href="."></a>전체</li>
-            <li><a href="."></a>정치</li>
-            <li><a href="."></a>경제</li>
-            <li><a href="."></a>세계</li>
-            <li><a href="."></a>테그</li>
-            <li><a href="."></a>노동</li>
-            <li><a href="."></a>환경</li>
-            <li><a href="."></a>인권</li>
-            <li><a href="."></a>사회</li>
-            <li><a href="."></a>문화</li>
-            <li><a href="."></a>라이프</li>
+            <li><a href=".">전체</a></li>
+            <li><a href=".">정치</a></li>
+            <li><a href=".">경제</a></li>
+            <li><a href=".">세계</a></li>
+            <li><a href=".">테그</a></li>
+            <li><a href=".">노동</a></li>
+            <li><a href=".">환경</a></li>
+            <li><a href=".">인권</a></li>
+            <li><a href=".">사회</a></li>
+            <li><a href=".">문화</a></li>
+            <li><a href=".">라이프</a></li>
         </ul>
         <div>
             <div>
