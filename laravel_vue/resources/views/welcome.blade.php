@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <App></App>
+        <App-Component :laravel-Data="{{ $data }}"></App-Component>
+        {{-- 두 단어 이상일 때는 '-'로 연결 --}}
     </div>
 </body>
 </html>

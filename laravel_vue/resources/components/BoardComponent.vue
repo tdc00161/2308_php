@@ -1,13 +1,13 @@
 <template>
     <div>
-        APP VUE 컴포넌트
+        <h1>Board VUE 컴포넌트!!!!!!!!!!!</h1>
     </div>
 </template>
 <script>
 export default {
-    name: 'App',
+    name: 'BoardComponent',
 }
 </script>
-<style lang="">
+<style>
     
 </style>
