@@ -10,5 +10,16 @@ class UserController extends Controller
         return view("login");
     }
 
-    pub
+    public function loginpost() {
+        return view("login");
+    }
+
+    public function registget() {
+        return view("regist");
+    }
+
+    public function registpost() {
+        return view("regist");
+    }
+
 }
