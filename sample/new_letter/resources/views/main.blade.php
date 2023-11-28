@@ -1,4 +1,4 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 
 @section('title','new_letter')
 
@@ -94,4 +94,4 @@
 </main>
 
 
-@endsection
+@endsection --}}

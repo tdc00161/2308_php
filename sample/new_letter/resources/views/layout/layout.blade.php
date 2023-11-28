@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -12,4 +12,4 @@
     @yield('main')
     @include('layout.footer')
 </body>
-</html>
+</html> --}}

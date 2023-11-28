@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('boards', function (Blueprint $table) {
-            $table->id('number');
-            $table->string('img',100);
-            $table->string('title',100);
-            $table->longText('content');
-            $table->integer('views');
-            $table->integer('heart');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::create('category_name', function (Blueprint $table) {
             $table->char('category_id',1);
+            $table->string('category_name',20);
         });
     }
 
@@ -33,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boards');
+        Schema::dropIfExists('category_name');
     }
 };

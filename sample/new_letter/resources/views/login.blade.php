@@ -1,11 +1,12 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 
 @section('title','login')
 
 @section('main')
 <main class="login_main">
 
-    <form class="login_form" action="/login" method="POST">
+    <form class="login_form" action="{{route('login.post')}}" method="POST">
+        @csrf
         <div class="login_div">
             <p class="login_title">CK CK NEWSLETTER</p>
             <br>
@@ -24,8 +25,8 @@
             <br>
             <button class="login_btn" type="submit">로그인</button>
             <br>
-            <a class="login_rg" href="/regist">회원가입하기</a>
+            <a class="login_rg" href="{{route('regist.get')}}">회원가입하기</a>
         </div>    
     </form>
 </main>
-@endsection
+@endsection --}}

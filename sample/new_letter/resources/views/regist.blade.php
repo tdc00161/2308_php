@@ -1,4 +1,4 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 
 @section('title','regist')
 
@@ -7,7 +7,8 @@
     <div class="rgttitlediv">
         <p class="rgth">ck ck newletter</p>
         <br>
-        <form action="/regist" method="POST">
+        <form action="{{route('regist.post')}}" method="POST">
+            @csrf
             <input class="rgtip" type="email" name="email" placeholder="이메일" required>
             <br>
             <input class="rgtip" type="password" name="pw" placeholder="비밀번호(8자 이상)" required>
@@ -27,4 +28,4 @@
         </form>
     </div>
 </main>
-@endsection
+@endsection --}}

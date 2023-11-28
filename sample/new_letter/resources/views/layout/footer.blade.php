@@ -1,4 +1,4 @@
-<footer>
+{{-- <footer>
     <div>CK CK NEWSLETTER</div>
     <span>서비스이용약관</span>
     <br>
@@ -17,4 +17,4 @@
         <br>
         <span>문의사항 있으시면 고객센터로 문의부탁드립니다.</span>
     </div>
-</footer>
+</footer> --}}
