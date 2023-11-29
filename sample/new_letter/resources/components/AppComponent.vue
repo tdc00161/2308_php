@@ -1,33 +1,38 @@
 <template>
     <div>
-        <Header></Header>
+        <HeaderComponent></HeaderComponent>
+        <!-- <LoginComponent></LoginComponent> -->
         <MainComponent></MainComponent>
-        <Footer></Footer>
+        <FooterComponent></FooterComponent>
     </div>
 </template>
 <script>
 
-import Header from './layout/Header.vue';
-import Footer from './layout/Footer.vue';
+import HeaderComponent from './HeaderComponent.vue';
+import FooterComponent from './FooterComponent.vue';
+// import LoginComponent from './LoginComponent.vue';
 import MainComponent from './MainComponent.vue';
+
+
 
 export default {
     name:'AppComponent',
     components: {
-    Header,
-    Footer,
-    MainComponent,
-}
+        HeaderComponent,
+        FooterComponent,
+        // LoginComponent,
+        MainComponent,
+    },
+    created() {
+    this.$store.dispatch('actionGetBoardList');
+  },
 }
 </script>
 <style>
-@import url('/css/common.css');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: black;
 }
 </style>

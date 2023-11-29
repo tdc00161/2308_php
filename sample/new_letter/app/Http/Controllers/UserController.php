@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -15,7 +16,7 @@ class UserController extends Controller
             return redirect()->route("main");
         }
         
-        return view("login");
+        return view("/login");
     }
 
     public function loginpost(Request $request) {

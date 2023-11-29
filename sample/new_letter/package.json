@@ -14,11 +14,11 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "vue": "^3.3.9",
         "vue-loader": "^17.3.1"
     },
     "dependencies": {
         "components": "^0.1.0",
-        "vue": "^3.3.9",
         "vuex": "^4.0.2"
     }
 }

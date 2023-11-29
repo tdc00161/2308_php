@@ -19,6 +19,41 @@
         </div>
     </div>
 </template>
+<script>
+
+    export default {
+        name:'FooterComponent',
+    }
+</script>
 <style>
-    @import url('/css/common.css');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+
+span {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    height: 250px;
+    background-color: darkgray;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+}
 </style>
