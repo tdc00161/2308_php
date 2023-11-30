@@ -8,7 +8,7 @@ use App\Models\Board;
 class BoardController extends Controller
 {
     public function index(){
-        $responseData = Board::get();
+        $responseData = Board::limit(12)->get();
         return $responseData;
     }
 

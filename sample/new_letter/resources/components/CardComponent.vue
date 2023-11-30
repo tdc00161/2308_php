@@ -1,16 +1,16 @@
 <template>
         <div class="main_card">
-                <div v-for="item in $store.state.boardData" :key="item" class="main_divcard">
-                    <img class="main_cardimg" :style="{backgroundImage : `url('${item.img}')`}">
-                    <div>
-                        <h3>{{item.title}}</h3>
-                        <div>{{item.created_at}}</div>
-                        <div>{{item.category_name}}</div>
-                        <br>
-                        <div><img class="main_ulimg" src="/css/img/eye.png" alt="">{{item.views}}</div>
-                        <div><img class="main_ulimg" src="/css/img/heart.png" alt="">{{item.heart}}</div>
-                    </div>
+            <div v-for="item in $store.state.boardData" :key="item" class="div_card">
+                <img class="card_img" :style="{backgroundImage : `url('${item.img}')`}">
+                <div class="div_content">
+                    <h3>{{item.title}}</h3>
+                    <div>{{item.created_at}}</div>
+                    <div>{{item.category_name}}</div>
+                    <br>
+                    <div><img class="div_img" src="/css/img/eye.png" alt="">{{item.views}}</div>
+                    <div><img class="div_img" src="/css/img/heart.png" alt="">{{item.heart}}</div>
                 </div>
+            </div>
         </div>
 </template>
 <script>
@@ -21,27 +21,45 @@
             item: [],
             };
         },
-        mounted() {
-            this.fetchItems();
-        },
+        // mounted() {
+        //     this.fetchItems();
+        // },
     }
 
 </script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.main_card {
+    display: table;
+    border-collapse: collapse;
+    width: 60%;
+    max-width: 60%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
-a {
-    text-decoration: none;
-    color: black;
+.div_content {
+    padding: 5px;
 }
 
-body {
+.div_card {
+    width: 350px;
+    height: 350px;
+    border: 1px solid black;
+    display: table-cell;
+}
+
+.card_img {
+    width: 100%;
+    height: 190px;
+}
+
+.div_img {
+    width: 15px;
+    height: 15px;
     box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
+    justify-content: center;
+    margin-right: 5px;
 }
 </style>

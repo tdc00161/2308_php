@@ -1,117 +1,126 @@
 <template>
-    <main class="rgtmain">
-        <div class="rgttitlediv">
-            <p class="rgth">ck ck newletter</p>
+    <main class="rgt_main">
+        <div class="rgt_title">
+            <a href="/" class="rgt_p">CK CK NEWSLETTER</a>
             <br>
-                <input class="rgtip" type="email" name="email" placeholder="이메일" required>
-                <br>
-                <input class="rgtip" type="password" name="pw" placeholder="비밀번호(8자 이상)" required>
-                <br>
-                <input class="rgtip" type="password" name="pwchk" placeholder="비밀번호 확인(8자 이상)" required>
-                <br>
-                <input class="rgtip" type="text" name="name" placeholder="닉네임" required>
-
-                <div class="rgtagree">
-                    <div class="divlb">
-                        <input v-model="checked" class="main_inputchk" type="checkbox">모두 동의합니다
-                    </div>
-                    <div class="divlb">
-                        <input v-model="checked" class="main_inputchk" type="checkbox">만 14세 이상 가입 동의 (필수)
-                        <a class="rgta" href=".">약관보기</a>
-                    </div>
-                    <div class="divlb">
-                        <input v-model="checked" class="main_inputchk" type="checkbox">이용약관 동의 (필수)
-                        <a class="rgta" href=".">약관보기</a>
-                    </div>
-                    <div class="divlb">
-                        <input v-model="checked" class="main_inputchk" type="checkbox">개인정보 수집/이용 동의 (필수)
-                        <a class="rgta" href=".">약관보기</a>
-                    </div>
-                    <div class="divlb">
-                        <input v-model="checked" class="main_inputchk" type="checkbox">뉴스레터 및 마케팅 정보 수신 동의 (선택)
-                        <a class="rgta" href=".">약관보기</a>
-                    </div>
+            <input class="rgt_ip"  type="email" v-model="email" placeholder="이메일" required>
+            <br>
+            <input class="rgt_ip" type="password" v-model="pw" placeholder="비밀번호(8자 이상)" required>
+            <br>
+            <input class="rgt_ip" type="password" v-model="pwchk" placeholder="비밀번호 확인(8자 이상)" required>
+            <br>
+            <input class="rgt_ip" type="text" v-model="name" placeholder="닉네임" required>
+            <div class="rgt_agree">
+                <div class="div_lb">
+                    <input v-model="totalchk" class="input_chk" type="checkbox">모두 동의합니다
                 </div>
-
-                <br><br><br>
-                <button class="rgtbtn" type="submit">가입하기</button>
+                <div class="div_lb">
+                    <input v-model="agechk" class="input_chk" type="checkbox">만 14세 이상 가입 동의 (필수)
+                    <a class="rgt_a" href=".">약관보기</a>
+                </div>
+                <div class="div_lb">
+                    <input v-model="usechk" class="input_chk" type="checkbox">이용약관 동의 (필수)
+                    <a class="rgt_a" href=".">약관보기</a>
+                </div>
+                <div class="div_lb">
+                    <input v-model="perchk" class="input_chk" type="checkbox">개인정보 수집/이용 동의 (필수)
+                    <a class="rgt_a" href=".">약관보기</a>
+                </div>
+                <div class="div_lb">
+                    <input v-model="mkchk" class="input_chk" type="checkbox">뉴스레터 및 마케팅 정보 수신 동의 (선택)
+                    <a class="rgt_a" href=".">약관보기</a>
+                </div>
+            </div>
+            <br><br>
+            <button class="rgt_btn" type="submit">가입하기</button>
         </div>
     </main>
 </template>
 <script>
-export default {
-    name: 'RegistrationComponent',
-    data() {
-        return {
-            checked:false
-        }
-    },
+    export default {
+        name: 'RegistrationComponent',
+        data() {
+            return {
+                checked:false,
+                email: "",
+                pw: "",
+                pwchk: "",
+                name: "",
+                totalchk: "",
+                agechk: "",
+                usechk: "",
+                perchk: "",
+                mkchk: "",
 
-}
+            }
+        },
+
+    }
 </script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    @import url('/css/common.css');
 
-a {
-    text-decoration: none;
-    color: black;
-}
+    .rgt_main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: blanchedalmond;
+        text-align: center;
+    }
 
-body {
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-}
+    .rgt_title {
+        display: inline-block;
+        margin: auto;
+        width: 430px;
+        height: 550px;
+        padding: 10px;
+        
+    }
 
-.rgttitlediv {
-    width: 450px;
-    height: 550px;
-    margin: auto;
-    padding: 10px;
-}
+    .rgt_p {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
 
-.rgth {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-}
+    .rgt_ip {
+        width: 400px;
+        height: 50px;
+        margin: 5px 0;
+        padding-left: 20px;
+    }
 
-.rgtip {
-    width: 400px;
-    height: 50px;
-    margin: 5px 0;
-    padding-left: 20px;
-}
+    .input_chk {
+        margin: 0 5px 0 0;
+        accent-color: black;
+    }
 
-.rgtip:focus {
-    outline: none;
-}
+    .rgt_agree {
+        text-align: left;
+        margin: 15px 0 0 6px;
+    }
 
-.rgtbtn {
-    width: 400px;
-    height: 50px;
-    background-color: black;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-}
+    .rgt_ip:focus {
+        outline: none;
+    }
 
-.rgtbtn:hover {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-}
+    .rgt_btn {
+        width: 400px;
+        height: 50px;
+        background-color: black;
+        color: #fff;
+        border-radius: 10px;
+        border: none;
+    }
 
-.divlb {
-    margin-top: 5px;
-}
+    .div_lb {
+        margin-top: 5px;
+    }
 
-.rgta {
-    font-weight: 900;
-    text-decoration: underline;
-}
+    .rgt_a {
+        font-weight: 900;
+        text-decoration: underline;
+    }
 </style>

@@ -1,13 +1,17 @@
 require('./bootstrap');
 
+
 import { createApp } from 'vue'
-import AppComponent from '../components/AppComponent.vue'
+import MainComponent from '../components/MainComponent.vue'
+import LoginComponent from '../components/LoginComponent.vue'
 import RegistrationComponent from '../components/RegistrationComponent.vue'
+
 import store from './store.js'
 
 createApp({
     components: {
-        AppComponent,
+        MainComponent,
+        LoginComponent,
         RegistrationComponent,
     }
 })

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,16 @@ use App\Http\Controllers\BoardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
 
 Route::get('/board', [BoardController::class, 'index']);
 
+Route::get('/login', [UserController::class,'loginget'])->name('login.get'); //로그인 화면 이동
+Route::middleware('user.validation')->post('/login', [UserController::class,'loginpost'])->name('login.post'); //로그인 처리
+
 Route::get('/regist', [UserController::class,'registget'])->name('regist.get'); //회원가입 화면 이동
-Route::post('/regist', [UserController::class,'registpost'])->name('regist.post'); //회원가입 처리
+Route::middleware('user.validation')->post('/regist', [UserController::class,'registpost'])->name('regist.post'); //회원가입 처리
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

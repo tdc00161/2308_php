@@ -19,20 +19,5 @@
     }
 </script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-}
+    @import url('/css/common.css');
 </style>

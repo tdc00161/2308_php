@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <footer>
         <span>서비스이용약관</span>
         <br>
         <span>개인정보처리방침</span>
@@ -17,7 +17,7 @@
             <br>
             <span>문의사항 있으시면 고객센터로 문의부탁드립니다.</span>
         </div>
-    </div>
+    </footer>
 </template>
 <script>
 
@@ -26,34 +26,13 @@
     }
 </script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-}
-
-span {
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-footer {
-    width: 100%;
-    height: 250px;
-    background-color: darkgray;
-    position: fixed;
-    bottom: 0;
-    padding: 20px;
-}
+    footer {
+        width: 100%;
+        height: 250px;
+        background-color: rgb(88, 88, 88);
+        position: fixed;
+        bottom: 0;
+        padding: 20px;
+        color: #fff;
+    }
 </style>

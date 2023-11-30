@@ -14,7 +14,7 @@
             </a>
         </div>
     </header>
-    <hr>
+    <hr class="header_hr">
 </template>
 <script>
 
@@ -23,18 +23,6 @@
     }
 </script>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-}
-
 header {
     width: 100%;
     height: 200px;
@@ -46,7 +34,7 @@ header {
 .header_a {
     display: inline-block;
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
     grid-column: 2/3;
@@ -82,4 +70,9 @@ header {
     height: 40px;
     border: 1px solid black;
 }
+
+.header_hr {
+        border: 2px solid black;
+        width: 100vw;
+    }
 </style>
