@@ -16,7 +16,7 @@ class UserController extends Controller
     public function loginget() {
         //로그인이 되었을 때는 메인페이지로(로그인여부체크)
         if(Auth::check()){
-            return redirect()->route("main");
+            return route("main");
         }
         
         return view("login");

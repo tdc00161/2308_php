@@ -12,6 +12,7 @@ const store = createStore({
             lastBoardId: 0,
             flgBtnMoreView: true,
             flgTabUI: 0,
+            flgUI:0,
         }
     },
 
@@ -40,6 +41,11 @@ const store = createStore({
         // 탭ui 셋팅용
         setFlgTabUI(state, num) {
             state.flgTabUI = num;
+        },
+
+        // 화면전환 셋팅용
+        setFlgUI(state, num) {
+            state.flgUI = num;
         },
 
         // 마지막 게시글 번호 셋팅용

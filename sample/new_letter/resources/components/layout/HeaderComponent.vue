@@ -1,17 +1,18 @@
 <template>
-    <header>
-        <a class="header_a" href="/">CK CK NEWSLETTER</a>
+    <header v-if="$store.state.flgUI === 0">
+        <router-link to="/">CK CK NEWSLETTER</router-link>
         <div class="header_div">
             <input class="header_input" type="text">
             <a class="header_btn" href="#"><img class="header_img" src="/css/img/search.png" alt=""></a>
-            <a class="header_btn" href="/login"><img class="header_img" src="/css/img/user.png" alt="">
-                <!-- <ul>
+            <router-link to="/login"><img class="header_img" src="/css/img/user.png" alt=""></router-link>
+            <!-- <div>
+                <ul>
                     <li>마이페이지</li>
                     <li>프로필 설정</li>
                     <li>고객센터</li>
                     <li>로그아웃</li>
-                </ul> -->
-            </a>
+                </ul>
+            </div> -->
         </div>
     </header>
     <hr class="header_hr">

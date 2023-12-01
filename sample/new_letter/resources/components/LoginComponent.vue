@@ -18,7 +18,7 @@
             <br>
             <button class="login_btn" type="submit">로그인</button>
             <br>
-            <a class="login_rg" href="/regist">회원가입하기</a>
+            <router-link to="/regist">회원가입하기</router-link>
         </div>
     </div>    
 </template>
@@ -31,6 +31,9 @@
                 pw:"",
             }
         },
+        // created() {
+        //     this.$store.commit('setFlgUI', 1);
+        // },
 
     }
 </script>

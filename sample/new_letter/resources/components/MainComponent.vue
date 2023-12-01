@@ -1,26 +1,24 @@
 <template>
     <div>
-        <HeaderComponent/>
-        <BoardComponent/>
-        <FooterComponent/>
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import HeaderComponent from './layout/HeaderComponent.vue'
-import BoardComponent from './BoardComponent.vue'
-import FooterComponent from './layout/FooterComponent.vue'
 
 export default {
     name: 'MainComponent',
     components: {
-        HeaderComponent,
-        BoardComponent,
-        FooterComponent,
+
     }
 }
 </script>
 <style>
     @import url('/css/common.css');
-
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: black;
+     }
     
 </style>

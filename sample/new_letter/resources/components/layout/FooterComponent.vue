@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer v-if="$store.state.flgUI === 0">
         <span>서비스이용약관</span>
         <br>
         <span>개인정보처리방침</span>
@@ -20,7 +20,6 @@
     </footer>
 </template>
 <script>
-
     export default {
         name:'FooterComponent',
     }
