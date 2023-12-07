@@ -1,4 +1,11 @@
+// 1. DOM ( Document Object Model )이란? - 교제 P.679 그림 참조
+// 	- 웹 문서를 제어하기 위해서 웹 문서를 객체화한 것
+// 	- DOM API를 통해서 HTML의 구조나 내용 또는 스타일등을 동적으로 조작 가능
 
+// ------------------
+// 2. 요소 선택
+// ------------------
+// 고유한 ID로 요소를 선택
 const TITLE = document.getElementById('title');
 
 
@@ -90,6 +97,25 @@ for (i = 0; i < 9; i++) {
 		UL_LI[i].style.color = 'blue';
 	};
 }
+
+// 방법 2
+// const test1 = document.querySelectorAll('ul li:nth-child(even)');
+// const test2 = document.querySelectorAll('ul li:nth-child(odd)');
+// for(let i = 0; i < test1.length; i++){
+// 	test1[i].style.color= 'red';
+// }
+// for(let i = 0; i < test2.length; i++){
+// 	test2[i].style.color= 'blue';
+// }
+
+// 6. 참조
+// 	DOM 속성
+// 	https://developer.mozilla.org/en/docs/Web/API/Element
+
+// 	Document
+//  https://developer.mozilla.org/ko/docs/Web/API/Document
+
+
 // for 문안에 작성할 때 꼭 let 을 함께 작성해두자.
 
 

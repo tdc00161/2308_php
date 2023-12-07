@@ -29,6 +29,20 @@ fnc_callBack(function() {
 	console.log('익명함수');
 });
 
+// 배열객체의 sort의 경우 예시(**동작은 암함**)
+// sort_arr.sort( function(a, b) {
+// 	return a - b
+// });
+
+// function sort(call) {
+// 	let num = call();
+// 	if(num < 0) {
+// 		//처리
+// 	} else {
+// 		// 
+// 	}
+// }
+
 // Function 생성자 함수
 let tt = Function('a', 'b', 'return a + b;');
 

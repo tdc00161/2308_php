@@ -20,24 +20,15 @@ PROMISE1
 .catch( err => console.log(err) )
 .finally( () => console.log('finally 입니다.') )
 
+// 3. promise 함수 등록
+// 재사용성, 가독성, 확장성을 이유로 현업에서는 아래와 같이 함수를 등록하고 사용
+
 // const PRO2 = new Promise( function(resolve, reject){
 // 	setTimeout(() => resolve(), +)
 // })
 
-const PRO2 = function(ms) {
-	return new Promise( (resolve) => {
-		setTimeout(() => resolve(ms), ms );
-	})
-}
-
-PRO2(1000)
-.then( data => console.log('A'))
-
-// 3. promise 함수 등록
-// 재사용성, 가독성, 확장성을 이유로 현업에서는 아래와 같이 함수를 등록하고 사용
-
 function PRO2() {
-	new Promise( function(resolve, reject) {
+	return new Promise( function(resolve, reject) {
 		let flg = true;
 		if(flg) {
 			return resolve('성공'); // 요청 성공 시 resolve()를 호출
@@ -47,7 +38,34 @@ function PRO2() {
 	});
 }
 
-PRO2
-.then()
-.catch()
-.finally()
+// const PRO3 = function(ms) {
+// 	return new Promise( (resolve) => {
+// 		setTimeout(() => resolve(ms), ms );
+// 	})
+// }
+function PRO3(str, ms) {
+	return new Promise( function(resolve) {
+		setTimeout(()=>{
+			console.log(str);
+			resolve();
+		}, ms);
+	});
+}
+
+// PRO2(1000)
+// .then( data => console.log('A'))
+
+
+setTimeout(() => {
+	console.log('A');
+	setTimeout( () => {
+		console.log('B');
+		setTimeout(() => {
+			console.log('C')
+		}, 1000);
+	}, 2000);
+}, 3000);
+
+PRO3('A', 3000)
+.then( () => PRO3('B', 2000) )
+.then( () => PRO3('C', 1000) );
