@@ -1,6 +1,6 @@
 <template>
     <header v-if="$store.state.flgUI === 0">
-        <router-link to="/">CK CK NEWSLETTER</router-link>
+        <router-link to="/" class="router_a">CK CK NEWSLETTER</router-link>
         <div class="header_div">
             <input class="header_input" type="text">
             <a class="header_btn" href="#"><img class="header_img" src="/css/img/search.png" alt=""></a>
@@ -32,7 +32,7 @@ header {
     grid-template-columns: repeat(3,1fr);
 }
 
-.header_a {
+.router_a {
     display: inline-block;
     text-decoration: none;
     font-size: 2.5rem;

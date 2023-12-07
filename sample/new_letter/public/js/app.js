@@ -19380,7 +19380,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      checked: false,
+      inputEM: "",
+      inputNK: ""
+    };
+  }
+});
 
 /***/ }),
 
@@ -19648,33 +19656,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "intro_ip",
     type: "email",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.inputEM = $event;
+      return $data.inputEM = $event;
     }),
     placeholder: "이메일",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputEM]]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.inputEM]]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "intro_ip",
     type: "text",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.inputNK = $event;
+      return $data.inputNK = $event;
     }),
     placeholder: "닉네임",
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.inputNK]]), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.inputNK]]), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "input_chk",
     type: "checkbox",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.chkp = $event;
+      return $data.checked = $event;
     }),
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, _ctx.chkp]]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("에 동의합니다")]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.checked]]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("에 동의합니다")]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": "input_chk",
     type: "checkbox",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return _ctx.chkm = $event;
+      return $data.checked = $event;
     }),
     required: ""
-  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, _ctx.chkm]]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("에 동의합니다")]), _hoisted_18, _hoisted_19, _hoisted_20, _hoisted_21])])])])]);
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.checked]]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("에 동의합니다")]), _hoisted_18, _hoisted_19, _hoisted_20, _hoisted_21])])])])]);
 }
 
 /***/ }),
@@ -20142,7 +20150,8 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_ctx.$store.state.flgUI === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: "/"
+    to: "/",
+    "class": "router_a"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("CK CK NEWSLETTER")];
@@ -20155,7 +20164,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_5];
     }),
     _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div>\r\n                <ul>\r\n                    <li>마이페이지</li>\r\n                    <li>프로필 설정</li>\r\n                    <li>고객센터</li>\r\n                    <li>로그아웃</li>\r\n                </ul>\r\n            </div> ")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_6], 64 /* STABLE_FRAGMENT */);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div>\n                <ul>\n                    <li>마이페이지</li>\n                    <li>프로필 설정</li>\n                    <li>고객센터</li>\n                    <li>로그아웃</li>\n                </ul>\n            </div> ")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_6], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -20418,7 +20427,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\r\n    font-family: Avenir, Helvetica, Arial, sans-serif;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n    color: black;\n}\r\n\r\n    /* label {\r\n        margin: 20px 0;\r\n    } */\n.main_plusbtn {\r\n        width: 250px;\r\n        height: 50px;\r\n        border: none;\r\n        background-color: antiquewhite;\r\n        border-radius: 15px;\r\n        display: inline-block;\r\n        line-height: 50px;\r\n        margin-top: 50px;\r\n        display: flex;\r\n        font-weight: 700;\r\n        justify-content: center;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n    font-family: Avenir, Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    color: black;\n}\n\n    /* label {\n        margin: 20px 0;\n    } */\n.main_plusbtn {\n        width: 250px;\n        height: 50px;\n        border: none;\n        background-color: antiquewhite;\n        border-radius: 15px;\n        display: inline-block;\n        line-height: 50px;\n        margin-top: 50px;\n        display: flex;\n        font-weight: 700;\n        justify-content: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20445,7 +20454,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ninput:focus {\r\n        outline: none;\n}\n.first_div {\r\n        width: 100vw;\r\n        padding-bottom: 300px;\n}\n.b_span {\r\n        font-weight: 600;\r\n        text-decoration: underline;\n}\n.title_img {\r\n        width: 400px;\r\n        height: 500px;\r\n        position: absolute;\r\n        margin-top: 3rem;\r\n        margin-left: 62%;\n}\n.title {\r\n        font-size: 2rem;\r\n        font-weight: 800;\r\n        padding: 1em 0 1em 10rem;\r\n        width: 100%;\r\n        background-color: rgb(255, 213, 198);\n}\n.title_div {\r\n        padding: auto 0;\r\n        background-color: rgb(248, 104, 52);\n}\n.div_intro {\r\n        width: 70%;\r\n        height: 450px;\r\n        padding: 4em 0 4em 10rem;\n}\n.intro_ip {\r\n        width: 400px;\r\n        height: 40px;\r\n        margin-bottom: 5px;\n}\n.intro_ip::-moz-placeholder {\r\n        padding-left: 10px;\n}\n.intro_ip::placeholder {\r\n        padding-left: 10px;\n}\n.intro_btn {\r\n        width: 250px;\r\n        height: 50px;\r\n        font-size: 15px;\r\n        border: 1px solid black;\r\n        border-radius: 10px;\n}\n.intro_bt {\r\n        width: 250px;\r\n        height: 50px;\r\n        border: 1px solid black;\r\n        background-color: black;\r\n        border-radius: 10px;\r\n        color: white;\r\n        display: inline-block;\r\n        font-size: 15px;\r\n        margin: 0;\r\n        text-align: center;\r\n        line-height: 50px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput:focus {\n        outline: none;\n}\n.first_div {\n        width: 100vw;\n        /* padding-bottom: 300px; */\n}\n.b_span {\n        font-weight: 600;\n        text-decoration: underline;\n}\n.title_img {\n        width: 400px;\n        height: 500px;\n        position: absolute;\n        margin-top: 3rem;\n        margin-left: 62%;\n}\n.title {\n        font-size: 2rem;\n        font-weight: 800;\n        padding: 1em 0 1em 10rem;\n        width: 100%;\n        background-color: rgb(255, 213, 198);\n}\n.title_div {\n        padding: auto 0;\n        background-color: rgb(248, 104, 52);\n}\n.div_intro {\n        width: 70%;\n        height: 450px;\n        padding: 4em 0 4em 10rem;\n}\n.intro_ip {\n        width: 400px;\n        height: 40px;\n        margin-bottom: 5px;\n}\n.intro_ip::-moz-placeholder {\n        padding-left: 10px;\n}\n.intro_ip::placeholder {\n        padding-left: 10px;\n}\n.intro_btn {\n        width: 250px;\n        height: 50px;\n        font-size: 15px;\n        border: 1px solid black;\n        border-radius: 10px;\n}\n.intro_bt {\n        width: 250px;\n        height: 50px;\n        border: 1px solid black;\n        background-color: black;\n        border-radius: 10px;\n        color: white;\n        display: inline-block;\n        font-size: 15px;\n        margin: 0;\n        text-align: center;\n        line-height: 50px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20469,7 +20478,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.main_card {\r\n    display: table;\r\n    border-collapse: collapse;\r\n    width: 60%;\r\n    max-width: 60%;\r\n    margin: 0 auto;\r\n    display: grid;\r\n    grid-template-columns: repeat(3,1fr);\r\n    grid-template-rows: repeat(4, 1fr);\n}\n.div_content {\r\n    padding: 5px;\n}\n.div_card {\r\n    width: 350px;\r\n    height: 350px;\r\n    border: 1px solid black;\r\n    display: table-cell;\n}\n.card_img {\r\n    width: 100%;\r\n    height: 190px;\n}\n.div_img {\r\n    width: 15px;\r\n    height: 15px;\r\n    box-sizing: border-box;\r\n    justify-content: center;\r\n    margin-right: 5px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.main_card {\n    display: table;\n    border-collapse: collapse;\n    width: 60%;\n    max-width: 60%;\n    margin: 0 auto;\n    display: grid;\n    grid-template-columns: repeat(3,1fr);\n    grid-template-rows: repeat(4, 1fr);\n}\n.div_content {\n    padding: 5px;\n}\n.div_card {\n    width: 350px;\n    height: 350px;\n    border: 1px solid black;\n    display: table-cell;\n}\n.card_img {\n    width: 100%;\n    height: 190px;\n}\n.div_img {\n    width: 15px;\n    height: 15px;\n    box-sizing: border-box;\n    justify-content: center;\n    margin-right: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20496,7 +20505,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.login_bg {\r\n        background-color: rgb(249, 194, 91);\r\n        width: 100vw;\r\n        height: 100vh;\r\n        display: flex;\r\n        align-items: center;\r\n        justify-content: center;\n}\n.login_div {\r\n        width: 430px;\r\n        height: 550px;\r\n        padding: 10px;\r\n        background-color: transparent;\r\n        text-align: center;\n}\n.login_p {\r\n        display: inline-block;\r\n        font-size: 2rem;\r\n        font-weight: 700;\r\n        margin-bottom: 20px;\n}\n.login_hr {\r\n        width: 400px;\r\n        border: 1px solid black;\r\n        margin: 10px 0;\r\n        text-align: center;\r\n        display: inline-block;\n}\n.login_input {\r\n        width: 400px;\r\n        height: 50px;\r\n        border: 1px solid black;\r\n        background-color: #fff;\r\n        font-size: 1rem;\r\n        padding-left: 20px;\r\n        margin-bottom: 10px;\r\n        border-radius: 5px;\n}\n.login_input::-moz-placeholder {\r\n        font-size: 1rem;\n}\n.login_input::placeholder {\r\n        font-size: 1rem;\n}\n.login_pw {\r\n        font-size: 1rem;\r\n        text-decoration: underline;\r\n        text-align: left;\r\n        margin: 5px 0 0 20px;\r\n        display: block;\n}\n.login_rg {\r\n        font-size: 1rem;\r\n        text-decoration: underline;\n}\n.login_btn {\r\n        width: 400px;\r\n        height: 50px;\r\n        border: none;\r\n        background-color: black;\r\n        border-radius: 10px;\r\n        font-size: 1.5rem;\r\n        margin-bottom: 10px;\r\n        color: #fff;\n}\n.login_bt {\r\n        width: 400px;\r\n        height: 50px;\r\n        border: 1px solid black;\r\n        background-color: #fff;\r\n        border-radius: 5px;\r\n        display: inline-block;\r\n        line-height: 50px;\r\n        padding-left: 20px;\n}\n.login_bta {\r\n        display: flex;\r\n        justify-content: flex-start;\r\n        align-items: center\n}\n.login_img {\r\n        width: 30px;\r\n        height: 30px;\n}\n.login_btb {\r\n        font-size: 20px;\r\n        display: inline-block;\r\n        margin-left: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.login_bg {\n        background-color: rgb(249, 194, 91);\n        width: 100vw;\n        height: 100vh;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n}\n.login_div {\n        width: 430px;\n        height: 550px;\n        padding: 10px;\n        background-color: transparent;\n        text-align: center;\n}\n.login_p {\n        display: inline-block;\n        font-size: 2rem;\n        font-weight: 700;\n        margin-bottom: 20px;\n}\n.login_hr {\n        width: 400px;\n        border: 1px solid black;\n        margin: 10px 0;\n        text-align: center;\n        display: inline-block;\n}\n.login_input {\n        width: 400px;\n        height: 50px;\n        border: 1px solid black;\n        background-color: #fff;\n        font-size: 1rem;\n        padding-left: 20px;\n        margin-bottom: 10px;\n        border-radius: 5px;\n}\n.login_input::-moz-placeholder {\n        font-size: 1rem;\n}\n.login_input::placeholder {\n        font-size: 1rem;\n}\n.login_pw {\n        font-size: 1rem;\n        text-decoration: underline;\n        text-align: left;\n        margin: 5px 0 0 20px;\n        display: block;\n}\n.login_rg {\n        font-size: 1rem;\n        text-decoration: underline;\n}\n.login_btn {\n        width: 400px;\n        height: 50px;\n        border: none;\n        background-color: black;\n        border-radius: 10px;\n        font-size: 1.5rem;\n        margin-bottom: 10px;\n        color: #fff;\n}\n.login_bt {\n        width: 400px;\n        height: 50px;\n        border: 1px solid black;\n        background-color: #fff;\n        border-radius: 5px;\n        display: inline-block;\n        line-height: 50px;\n        padding-left: 20px;\n}\n.login_bta {\n        display: flex;\n        justify-content: flex-start;\n        align-items: center\n}\n.login_img {\n        width: 30px;\n        height: 30px;\n}\n.login_btb {\n        font-size: 20px;\n        display: inline-block;\n        margin-left: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20523,7 +20532,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\r\n        font-family: Avenir, Helvetica, Arial, sans-serif;\r\n        -webkit-font-smoothing: antialiased;\r\n        -moz-osx-font-smoothing: grayscale;\r\n        color: black;\n}\r\n    \r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n        font-family: Avenir, Helvetica, Arial, sans-serif;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        color: black;\n}\n    \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20550,7 +20559,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20577,7 +20586,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nul {\r\n    list-style: none;\r\n    height: 60px;\r\n    line-height: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    background-color: antiquewhite;\n}\nli {\r\n    float:left;\r\n    font-weight: 700;\r\n    margin: 0 20px 0 20px;\n}\n.nav_img {\r\n    width: 15px;\r\n    height: 15px;\r\n    box-sizing: border-box;\r\n    justify-content: center;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nul {\n    list-style: none;\n    height: 60px;\n    line-height: 60px;\n    display: flex;\n    justify-content: center;\n    background-color: antiquewhite;\n}\nli {\n    float:left;\n    font-weight: 700;\n    margin: 0 20px 0 20px;\n}\n.nav_img {\n    width: 15px;\n    height: 15px;\n    box-sizing: border-box;\n    justify-content: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20604,7 +20613,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_public_css_common_css__WEBPACK_IMPORTED_MODULE_1__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.rgt_main {\r\n        width: 100vw;\r\n        height: 100vh;\r\n        display: flex;\r\n        align-items: center;\r\n        background-color: blanchedalmond;\r\n        text-align: center;\n}\n.rgt_title {\r\n        display: inline-block;\r\n        margin: auto;\r\n        width: 430px;\r\n        height: 550px;\r\n        padding: 10px;\n}\n.rgt_p {\r\n        display: inline-block;\r\n        font-size: 2rem;\r\n        font-weight: 700;\r\n        margin-bottom: 20px;\n}\n.rgt_ip {\r\n        width: 400px;\r\n        height: 50px;\r\n        margin: 5px 0;\r\n        padding-left: 20px;\n}\n.input_chk {\r\n        margin: 0 5px 0 0;\r\n        accent-color: black;\n}\n.rgt_agree {\r\n        text-align: left;\r\n        margin: 15px 0 0 6px;\n}\n.rgt_ip:focus {\r\n        outline: none;\n}\n.rgt_btn {\r\n        width: 400px;\r\n        height: 50px;\r\n        background-color: black;\r\n        color: #fff;\r\n        border-radius: 10px;\r\n        border: none;\n}\n.div_lb {\r\n        margin-top: 5px;\n}\n.rgt_a {\r\n        font-weight: 900;\r\n        text-decoration: underline;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.rgt_main {\n        width: 100vw;\n        height: 100vh;\n        display: flex;\n        align-items: center;\n        background-color: blanchedalmond;\n        text-align: center;\n}\n.rgt_title {\n        display: inline-block;\n        margin: auto;\n        width: 430px;\n        height: 550px;\n        padding: 10px;\n}\n.rgt_p {\n        display: inline-block;\n        font-size: 2rem;\n        font-weight: 700;\n        margin-bottom: 20px;\n}\n.rgt_ip {\n        width: 400px;\n        height: 50px;\n        margin: 5px 0;\n        padding-left: 20px;\n}\n.input_chk {\n        margin: 0 5px 0 0;\n        accent-color: black;\n}\n.rgt_agree {\n        text-align: left;\n        margin: 15px 0 0 6px;\n}\n.rgt_ip:focus {\n        outline: none;\n}\n.rgt_btn {\n        width: 400px;\n        height: 50px;\n        background-color: black;\n        color: #fff;\n        border-radius: 10px;\n        border: none;\n}\n.div_lb {\n        margin-top: 5px;\n}\n.rgt_a {\n        font-weight: 900;\n        text-decoration: underline;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20628,7 +20637,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\r\n        width: 100%;\r\n        height: 250px;\r\n        background-color: rgb(88, 88, 88);\r\n        position: fixed;\r\n        bottom: 0;\r\n        padding: 20px;\r\n        color: #fff;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\n        width: 100%;\n        height: 250px;\n        background-color: rgb(88, 88, 88);\n        position: fixed;\n        bottom: 0;\n        padding: 20px;\n        color: #fff;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20652,7 +20661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nheader {\r\n    width: 100%;\r\n    height: 200px;\r\n    background-color: bisque;\r\n    display: grid;\r\n    grid-template-columns: repeat(3,1fr);\n}\n.header_a {\r\n    display: inline-block;\r\n    text-decoration: none;\r\n    font-size: 2.5rem;\r\n    font-weight: 900;\r\n    text-align: center;\r\n    grid-column: 2/3;\r\n    min-width: 463px;\r\n    line-height: 200px;\r\n    color: black;\n}\n.header_div{\r\n    display: inline-block;\r\n    align-items: center;\r\n    grid-column: 3/4;\r\n    display: flex;\r\n    justify-items: center;\r\n    justify-content: center\n}\n.header_input {\r\n    margin-right: 2px;\r\n    width: 200px;\r\n    height: 40px;\r\n    border: 1px solid black;\r\n    background-color: #fff;\n}\n.header_btn {\r\n    margin-right: 1px;\r\n    display: inline-block;\n}\n.header_img {\r\n    width: 40px;\r\n    height: 40px;\r\n    border: 1px solid black;\n}\n.header_hr {\r\n        border: 2px solid black;\r\n        width: 100vw;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nheader {\n    width: 100%;\n    height: 200px;\n    background-color: bisque;\n    display: grid;\n    grid-template-columns: repeat(3,1fr);\n}\n.router_a {\n    display: inline-block;\n    text-decoration: none;\n    font-size: 2.5rem;\n    font-weight: 900;\n    text-align: center;\n    grid-column: 2/3;\n    min-width: 463px;\n    line-height: 200px;\n    color: black;\n}\n.header_div{\n    display: inline-block;\n    align-items: center;\n    grid-column: 3/4;\n    display: flex;\n    justify-items: center;\n    justify-content: center\n}\n.header_input {\n    margin-right: 2px;\n    width: 200px;\n    height: 40px;\n    border: 1px solid black;\n    background-color: #fff;\n}\n.header_btn {\n    margin-right: 1px;\n    display: inline-block;\n}\n.header_img {\n    width: 40px;\n    height: 40px;\n    border: 1px solid black;\n}\n.header_hr {\n        border: 2px solid black;\n        width: 100vw;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20676,7 +20685,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\nbody {\r\n    box-sizing: border-box;\r\n    width: 100vw;\r\n    height: 100vh;\r\n}\r\n/* .rgtmain {\r\n    background-color: lightgray;\r\n} */", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\na {\n    text-decoration: none;\n    color: black;\n}\n\nbody {\n    box-sizing: border-box;\n    width: 100vw;\n    height: 100vh;\n}\n/* .rgtmain {\n    background-color: lightgray;\n} */", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -17,9 +17,9 @@
                         <br>
                         <input class="intro_ip" type="text" v-model="inputNK" placeholder="닉네임" required>
                         <br>
-                        <label><input class="input_chk" type="checkbox" v-model="chkp" required><span class="b_span">개인정보 수집·이용</span>에 동의합니다</label>
+                        <label><input class="input_chk" type="checkbox" v-model="checked" required><span class="b_span">개인정보 수집·이용</span>에 동의합니다</label>
                         <br>
-                        <label><input class="input_chk" type="checkbox" v-model="chkm" required><span  class="b_span">광고성 정보 수신</span>에 동의합니다</label>
+                        <label><input class="input_chk" type="checkbox" v-model="checked" required><span  class="b_span">광고성 정보 수신</span>에 동의합니다</label>
                         <br><br>
                         <button class="intro_btn" type="submit">뉴스레터 무료로 구독하기</button>
                         <a class="intro_bt" href="#">앱 다운로드하기 →</a>
@@ -31,7 +31,12 @@
 </template>
 <script>
 export default {
-    
+    data() {
+        return {
+            checked:false,
+            inputEM:"",
+            inputNK:"",
+    }}
 }
 </script>
 <style>
@@ -43,7 +48,7 @@ export default {
 
     .first_div {
         width: 100vw;
-        padding-bottom: 300px;
+        /* padding-bottom: 300px; */
     }
 
     .b_span {
