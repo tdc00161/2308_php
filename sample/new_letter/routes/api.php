@@ -17,9 +17,15 @@ use App\Http\Controllers\UserController;
 */
 
 
+//유저 관련
+Route::get('/login',[UserController::class,'loginget'])->name('login.get');
+Route::middleware('user.validation')->post('login',[UserController::class, 'loginpost'])
+->name('login.post');
+Route::get('/registration',[UserController::class],'registget')->name('regist.get');
+Route::middleware('user.validation')->post('registe',[UserController::class, 'registpost'])
+->name('regist.post');
 
 Route::get('/board', [BoardController::class, 'index']);
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

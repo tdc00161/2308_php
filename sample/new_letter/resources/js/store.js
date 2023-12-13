@@ -110,6 +110,29 @@ const store = createStore({
             })
         },
 
+        // 회원가입
+        registpost(context){
+            const url= 'https://jsonplaceholder.typicode.com/users';
+                    const data = {
+                        email: this.email,
+                        pw: this.pw,
+                        pwchk: this.pwchk,
+                        name: this.name,
+                        totalchk: this.totalchk,
+                        agechk: this.agechk,
+                        usechk: this.usechk,
+                        perchk: this.perchk,
+                        mkchk: this.mkchk,
+                    }
+                    axios.post(url,data)
+                        .then(function(Response){
+                            console.log(response);
+                        })
+                        .catch(function(error){
+                            console.log(error);
+                        })
+        },
+
         // 더보기
         actionGetBoardItem(context) {
             console.log(context);

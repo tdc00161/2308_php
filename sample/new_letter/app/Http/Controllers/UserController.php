@@ -16,7 +16,7 @@ class UserController extends Controller
     public function loginget() {
         //로그인이 되었을 때는 메인페이지로(로그인여부체크)
         if(Auth::check()){
-            return route("main");
+            return redirect("board");
         }
         
         return view("login");
@@ -40,7 +40,7 @@ class UserController extends Controller
             return view('login')->withErrors($errorMsg);
         }
         // redirect 사용을 하지않으면 라라벨 사용에 제약이 많을 수도 있음
-        return redirect()->route('board.index');
+        return redirect()->route('board');
         //    return view('list');
 
     }
@@ -49,7 +49,7 @@ class UserController extends Controller
         return view("regist");
     }
 
-    public function registpost() {
+    public function registpost(Request $request) {
         // 데이터 베이스에 저장할 데이터 획득
         $data = $request
             ->only('email', 'password', 'passwordchk', 'nickname', 'totalchk' ,'agechk' ,'usechk' ,'perchk' ,'mkchk');
@@ -62,9 +62,7 @@ class UserController extends Controller
         $result = User::create($data);
         // user 파일에 내용이 없더라도 내용추가가 가능함
 
-            return redirect()->route('login.get');
-
-        return view("regist");
+        return redirect()->route('login.get');
     }
 
 

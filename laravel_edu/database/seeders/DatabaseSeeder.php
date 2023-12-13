@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
         // 더미 데이터 삽입용 팩토리 호출
         // 더미 생성시 주의점 : 다량건을 할 경우 컴퓨터가 버텨내지 못할 수 있음
@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
         // }
         // 개별 시더 실행: php artisan db:seed --class=파일명
 
-        $cnt = 0;
-        while($cnt < 60) {
-            \App\Models\Board::factory(10)->create();
-            $cnt++;
-        }
+        // $cnt = 0;
+        // while($cnt < 60) {
+        //     \App\Models\Board::factory(10)->create();
+        //     $cnt++;
+        // }
 
     }    
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="graph"></div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+    var w = 250, h = 250;
+    $a = 10;
+    $b = 20;
+    $c = 30;
+    $d = 40;
+    $e = 50;
+    
+    d3.select(".graph")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h)
+        .attr("id", "graphWrap");
+    var graphWrap = d3.select("#graphWrap");
+    
+    var graphData = [$a, $b, $c, $d, $e];
+    var pie = d3.pie();
+    var arc = d3.arc().innerRadius(0).outerRadius(100);
+    var colors = ["#FFCA28", "#ffebee", "#c62828", "#DCEDC8", "#8BC34A"];
+    // var colors = d3.scaleOrdinal(d3.schemeCategory10);
+    
+    var oneGraph = graphWrap.selectAll("path").data(pie(graphData));
+    oneGraph.enter()
+        .append("path")
+        .attr("class", "pie")
+        .attr("transform", "translate("+(w/2)+","+(h/2)+")")
+        .style("fill", function(d, i) {
+            return colors(graphData[i]);})
+        .transition()
+        .duration(1000)
+        .delay(function(d, i) {
+            return i * 1000;
+        })
+        .attrTween("d", function(d, i) {
+            var interpolate = d3.interpolate(
+                {startAngle : d.startAngle, endAngle : d.startAngle},
+                {startAngle : d.startAngle, endAngle : d.endAngle}
+            );
+            return function(t){
+                return arc(interpolate(t));
+            }
+        });
+    
+</script>
+
+    
+</body>
+</html>

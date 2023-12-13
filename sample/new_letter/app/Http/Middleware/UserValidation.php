@@ -70,11 +70,11 @@ class UserValidation
         $validator = Validator::make(
             $arrRequestParam, $arrBaseValidation
         );
-        // var_dump($validator->errors()->all());
+        var_dump($validator->errors()->all());
 
-        // 유효성 검사 실패시 처리
+        유효성 검사 실패시 처리
         if($validator->fails()){
-                return redirect('/'.$request->path())->withErrors($validator->errors());
+                return redirect('/regist.get'.$request->path())->withErrors($validator->errors());
         }
 
         Log::debug("유저 유효성 체크 마침");
