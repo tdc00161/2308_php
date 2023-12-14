@@ -7,16 +7,16 @@
     <title>registration</title>
 </head>
 <body>
-    <form action="./registration" method="POST">
+    <form action="{{route('registration.post')}}" method="POST">
         @csrf
         <label for="id">아이디
-        <input type="text" name='id'></label>
+        <input type="text" id='user_id' name='user_id'></label>
         <br>
         <label for="pw">비밀번호
-        <input type="password" name="password"></label>
+        <input type="password" id='password' name="password"></label>
         <br>
         <label for="passwordchk">비밀번호확인
-        <input type="password" name="passwordchk"></label>
+        <input type="password" id='passwordchk' name="passwordchk"></label>
         <br><br>
         <button type="submit">회원가입</button>
     </form>

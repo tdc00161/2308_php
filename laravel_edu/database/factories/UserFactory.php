@@ -19,8 +19,7 @@ class UserFactory extends Factory
     {
         $date = $this->faker->dateTimeBetween('-1 years');
         return [
-            'id' => $this->faker->randomNumber(1),
-            'user_id' => $this->faker->sentence(4)->unique,
+            'user_id' => $this->faker->unique,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'created_at' => $date,

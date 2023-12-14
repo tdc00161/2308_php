@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Http\Middleware\Validation;
 
 class UserController extends Controller
 {
@@ -20,34 +21,34 @@ class UserController extends Controller
     {
         // 로그인 한 유저는 보드 리스트로 이동
         if(Auth::check()) {
-            return redirect()->route('board.index');
+            return redirect()->route('main');
         }
 
-        return view('/login');
+        return view('login');
     }
 
     public function loginpost()
     {
         // 유저 정보 습득
-        $result = User::where('email', $request->email)->first();
+        $result = User::where('user_id', $request->user_id)->first();
         if(!$result || !(Hash::check($request->password, $result->password))) {
             $errorMsg = '아이디와 비밀번호를 다시 확인해 주세요.';
-            return redirect()->route('user.login.get')->withErrors($errorMsg);
+            return redirect()->route('login.get')->withErrors($errorMsg);
         }
 
         // 유저 인증작업
         Auth::login($result);
         if(Auth::check()) {
-            session($result->only('id'));
+            session($result->only('user_id'));
         } else {
             $errorMsg = "인증 에러가 발생했습니다.";
             return view('login')->withErrors($errorMsg);
         }
 
-        return redirect()->route('board.index');
+        return redirect()->route('main');
     }
 
-    public function registget()
+    public function registrationget()
     {
         return view('/registration');
     }
@@ -55,15 +56,16 @@ class UserController extends Controller
     public function registrationpost(Request $request)
     {
         // 데이터 베이스에 저장할 데이터 획득
-        $data = $request->only('email', 'password', 'name');
+        $data = $request->only('user_id', 'password');
 
         // 비밀번호 암호화
-        $data['password'] = Hash::make($data['password']);
+        // $data['password'] = Hash::make($data['password']);
 
         // 회원 정보 DB에 저장
         $result = User::create($data);
+        dump($result);
 
-        return redirect()->route('user.login.get');
+        // return redirect()->route('login.get');
     }
 
     public function logoutget()

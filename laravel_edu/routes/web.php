@@ -22,7 +22,14 @@ Route::get('/', function () {
 
 
 Route::get('login',[UserController::class,'loginget'])->name('login.get');
-Route::get('registration',[UserController::class,'registget'])->name('regist.get');
+Route::post('login', [UserController::class, 'loginpost'])->name('login.post'); // 로그인 처리
+// Route::middleware('Validation')->post('login', [UserController::class, 'loginpost'])->name('login.post'); // 로그인 처리
+Route::get('registration',[UserController::class,'registrationget'])->name('registration.get');
+Route::post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
+// Route::middleware('Validation')->post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
+
+Route::get('main', function () {return view('welcome');});
+
 
 // //-----------------
 // // 라우트 정의
