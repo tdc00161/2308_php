@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
-use App\Models\User;
+use App\Models\users;
 use App\Http\Middleware\Validation;
-
 class UserController extends Controller
 {
     /**
@@ -27,10 +26,10 @@ class UserController extends Controller
         return view('login');
     }
 
-    public function loginpost()
+    public function loginpost(Request $request)
     {
         // 유저 정보 습득
-        $result = User::where('user_id', $request->user_id)->first();
+        $result = users::where('user_id', $request->user_id)->first();
         if(!$result || !(Hash::check($request->password, $result->password))) {
             $errorMsg = '아이디와 비밀번호를 다시 확인해 주세요.';
             return redirect()->route('login.get')->withErrors($errorMsg);
@@ -62,8 +61,8 @@ class UserController extends Controller
         // $data['password'] = Hash::make($data['password']);
 
         // 회원 정보 DB에 저장
-        $result = User::create($data);
-        dump($result);
+        $result = users::create($data);
+        // dump($result);
 
         // return redirect()->route('login.get');
     }

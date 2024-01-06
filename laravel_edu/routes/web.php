@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\InviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,10 @@ Route::get('registration',[UserController::class,'registrationget'])->name('regi
 Route::post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
 // Route::middleware('Validation')->post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
 
-Route::get('main', function () {return view('welcome');});
+Route::get('main', [BoardController::class,'main']);
+
+Route::get('/sendInvite',  [InviteController::class,'sendInvite']); //  초대링크
+Route::get('/acceptInvite',  [InviteController::class,'acceptInvite'])->name('invite');
 
 
 // //-----------------

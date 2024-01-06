@@ -139,4 +139,9 @@ class BoardController extends Controller
 
         return var_dump($result);
     }
+
+
+    public function main() {
+        
+    }
 }

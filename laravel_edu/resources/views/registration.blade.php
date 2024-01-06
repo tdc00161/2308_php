@@ -9,10 +9,10 @@
 <body>
     <form action="{{route('registration.post')}}" method="POST">
         @csrf
-        <label for="id">아이디
-        <input type="text" id='user_id' name='user_id'></label>
+        <label for="user_id">아이디
+        <input type="text" id='user_id' name="user_id"></label>
         <br>
-        <label for="pw">비밀번호
+        <label for="password">비밀번호
         <input type="password" id='password' name="password"></label>
         <br>
         <label for="passwordchk">비밀번호확인

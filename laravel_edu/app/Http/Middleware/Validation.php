@@ -22,14 +22,14 @@ class Validation extends Middleware
 
          // 항목 리스트
          $arrBaseKey = [
-            'id'
+            'user_id'
             ,'password'
             ,'passwordchk'
         ];
         
         // 유효성 체크 리스트
         $arrBaseValidation = [
-            'id'       => 'required|max:50'
+            'user_id'       => 'required|max:50'
             ,'password'     => 'required'
             ,'passwordchk'  => 'same:password'
         ];
