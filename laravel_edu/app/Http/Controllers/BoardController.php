@@ -142,6 +142,6 @@ class BoardController extends Controller
 
 
     public function main() {
-        
+        return view('home');
     }
 }

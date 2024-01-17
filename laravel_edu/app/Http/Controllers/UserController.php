@@ -44,7 +44,7 @@ class UserController extends Controller
             return view('login')->withErrors($errorMsg);
         }
 
-        return redirect()->route('main');
+        return redirect()->route('main.index');
     }
 
     public function registrationget()
@@ -58,13 +58,13 @@ class UserController extends Controller
         $data = $request->only('user_id', 'password');
 
         // 비밀번호 암호화
-        // $data['password'] = Hash::make($data['password']);
+        $data['password'] = Hash::make($data['password']);
 
         // 회원 정보 DB에 저장
         $result = users::create($data);
         // dump($result);
 
-        // return redirect()->route('login.get');
+        return redirect()->route('login.get');
     }
 
     public function logoutget()

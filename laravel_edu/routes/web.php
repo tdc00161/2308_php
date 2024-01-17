@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InviteController;
+use App\Http\Controllers\BoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,12 @@ Route::get('/', function () {
 
 Route::get('login',[UserController::class,'loginget'])->name('login.get');
 Route::post('login', [UserController::class, 'loginpost'])->name('login.post'); // 로그인 처리
-// Route::middleware('Validation')->post('login', [UserController::class, 'loginpost'])->name('login.post'); // 로그인 처리
+Route::middleware('Validation')->post('login', [UserController::class, 'loginpost'])->name('login.post'); // 로그인 처리
 Route::get('registration',[UserController::class,'registrationget'])->name('registration.get');
 Route::post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
-// Route::middleware('Validation')->post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
+Route::middleware('Validation')->post('registration', [UserController::class, 'registrationpost'])->name('registration.post'); // 로그인 처리
 
-Route::get('main', [BoardController::class,'main']);
+Route::get('/main', [BoardController::class,'main'])->name('main.index');
 
 Route::get('/sendInvite',  [InviteController::class,'sendInvite']); //  초대링크
 Route::get('/acceptInvite',  [InviteController::class,'acceptInvite'])->name('invite');
